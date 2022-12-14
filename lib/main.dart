@@ -4,6 +4,7 @@ import 'package:mrapp/screens/HomeScreen/view/home_screen.dart';
 import 'package:mrapp/screens/LoginScreen/provider/login_password_provider.dart';
 import 'package:mrapp/screens/LoginScreen/view/login_screen.dart';
 import 'package:mrapp/screens/ProfileScreen/view/profile_screen.dart';
+import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
 import 'package:mrapp/theme/theme.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/sharedpref.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginPasswordProvider()),
+        ChangeNotifierProvider(create: (_) => GasReaderProvider()),
        
       ],
       child: Builder(builder: (BuildContext context) {

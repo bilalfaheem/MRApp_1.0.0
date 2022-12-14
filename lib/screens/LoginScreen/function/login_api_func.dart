@@ -6,7 +6,6 @@ import 'package:http/http.dart';
 import 'package:mrapp/screens/HomeScreen/view/home_screen.dart';
 import 'package:mrapp/utils/loading.dart';
 import 'package:mrapp/utils/sharedpref.dart';
-import 'package:provider/provider.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

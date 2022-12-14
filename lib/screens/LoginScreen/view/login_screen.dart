@@ -61,16 +61,16 @@ class _Login_ScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // SizedBox(
-                //   height: _size.height * 0.1,
-                // ),
+                SizedBox(
+                  height: _size.height * 0.05,
+                ),
                 Container(
                   margin: EdgeInsets.only(top: height(50), bottom: height(15)),
                   child: Center(
                     child: Image.asset(zSZSaimaLogo,
                         width: width(220),
                         //  MediaQuery.of(context).size.width * 0.7,
-                        height: height(150)
+                        height: height(100)
                         // MediaQuery.of(context).size.height * 0.16,
                         ),
                   ),
@@ -433,7 +433,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                             (BuildContext context, BoxConstraints constraints) {
                           return Text(
                               // constraints.maxWidth.toStringAsFixed(2),
-                              readerLoginIdS,
+                              'Login',
                               style: GoogleFonts.ubuntu(
                                   fontSize: constraints.maxHeight * 0.4,
                                   // width(30),

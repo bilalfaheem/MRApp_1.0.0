@@ -30,8 +30,10 @@ class CustomTheme with ChangeNotifier {
         //  Color(0xff015e8b),
         //  Color.fromARGB(208, 23, 113, 109),
         // Colors.green,
-        primaryColorDark: Color.fromARGB(255, 4, 68, 100),
-        primaryColorLight: Color.fromARGB(193, 48, 129, 169),
+        primaryColorDark:Color(0xff04543c),
+        //  Color.fromARGB(255, 4, 68, 100),
+        primaryColorLight:Color(0xff04543c),
+        //  Color.fromARGB(193, 48, 129, 169),
         scrollbarTheme: ScrollbarThemeData(
           thickness: MaterialStateProperty.all(2),
           thumbColor: MaterialStateProperty.all(Color.fromARGB(21, 0, 0, 0),),

@@ -41,12 +41,19 @@ class ProfileScreen extends StatelessWidget {
                 Center(
                     child: CircleAvatar(
                   backgroundColor: theme.primaryColorDark,
-                  radius: _size.height * 0.07,
+                   radius: _size.height * 0.08  ,
+                  
+                  
                   // backgroundImage: AssetImage("assets/Bottom_Bar/Profile.png"),
-                  child: Image.asset(
-                    zSZSaimaLogo, height: _size.height * 0.1,
-                    color: Colors.white,
-                    // width: _size.width * 0.5,
+                  child: Container(
+                    // margin: EdgeInsets.symmetric(vertical: 100),
+                    // color: Colors.amber,
+                    // height: _size.height*1,
+                    child: Image.asset(
+                      zSZSaimaLogo, width: _size.height * 0.134,
+                      color: Colors.white,
+                      // width: _size.width * 0.5,
+                    ),
                   ),
                 )),
                  profileTile(

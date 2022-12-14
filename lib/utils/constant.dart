@@ -22,3 +22,9 @@ const cnic = "assets/Icon/cnic.png";
 const phone = "assets/Icon/phone.png";
 const society = "assets/Icon/society.png";
 const gas = "assets/Icon/gas.png";
+const complete = "assets/Icon/complete.png";
+const failed = "assets/Icon/failed.png";
+
+//Gif
+const success = "assets/Gif/success.gif";
+// const failed = "assets/Gif/fail.gif";
