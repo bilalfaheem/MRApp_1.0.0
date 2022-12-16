@@ -292,7 +292,7 @@ class _Login_ScreenState extends State<LoginScreen> {
 
                       // Password
                       Padding(
-                        padding: EdgeInsets.only(bottom: height(23)),
+                        padding: EdgeInsets.only(bottom: height(23),top: height(23)),
                         child: TextFormField(
                           cursorColor: theme.primaryColor,
                           controller: password_cont,

@@ -6,7 +6,7 @@ import 'package:mrapp/utils/constant.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+ const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: Container(
             // height: 90,
             // _size.height * 0.08,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               // color: Colors.blue,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(0), topLeft: Radius.circular(30)),
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(30.0),
                 topRight: Radius.circular(30.0),
               ),
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     [
                   BottomNavigationBarItem(
                     // backgroundColor: Colors.blueGrey,
-                    icon: ImageIcon(AssetImage(gas),
+                    icon: ImageIcon(const AssetImage( gas),
                         // "assets/Bottom_Bar/Wallet.png"),
                         //color: Colors.black,
                         size: _size.height * 0.028),
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage(profile),
+                    icon: ImageIcon(const AssetImage(profile),
                         size: _size.height * 0.028),
                     label: '',
                   ),

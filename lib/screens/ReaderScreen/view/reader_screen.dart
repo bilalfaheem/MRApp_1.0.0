@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mrapp/screens/CameraScreen/camera.dart';
 import 'package:mrapp/screens/ReaderScreen/function/gas_addresses.dart';
 import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
@@ -218,18 +219,23 @@ TextEditingController newReadingController = TextEditingController();
                               )],
                             ):
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
       //Address              
-                            Text(
-                              "  Address",
-                              textAlign: TextAlign.start,
-                              style: GoogleFonts.ubuntu(
-                              fontSize: _size.height*0.02,
-                              color: theme.primaryColor,
-                              
-                            ),),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "      Address",
+                                  // textAlign: TextAlign.start,
+                                  style: GoogleFonts.ubuntu(
+                                  fontSize: _size.height*0.02,
+                                  color: theme.primaryColor,
+                                  
+                                ),),
+                              ],
+                            ),
                             Container(
                             margin: EdgeInsets.only(bottom: _size.height * 0.02,top: _size.height*0.008),
                                 padding: EdgeInsets.symmetric(
@@ -261,14 +267,18 @@ TextEditingController newReadingController = TextEditingController();
                                 ),
                               ),
         //Previous Reading              
-                            Text(
-                              "  Previous Reading",
-                              textAlign: TextAlign.start,
-                              style: GoogleFonts.ubuntu(
-                              fontSize: _size.height*0.02,
-                              color: theme.primaryColor,
-                              
-                            ),),
+                            Row(
+                              children: [
+                                Text(
+                                  "      Previous Reading",
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.ubuntu(
+                                  fontSize: _size.height*0.02,
+                                  color: theme.primaryColor,
+                                  
+                                ),),
+                              ],
+                            ),
                             Container(
                             margin: EdgeInsets.only(bottom: _size.height * 0.02,top: _size.height*0.008),
                             padding: EdgeInsets.symmetric(
@@ -291,14 +301,18 @@ TextEditingController newReadingController = TextEditingController();
                                     ),
                                   ))),
       //new Reading             
-                            Text(
-                              "  New Reading",
-                              textAlign: TextAlign.start,
-                              style: GoogleFonts.ubuntu(
-                              fontSize: _size.height*0.02,
-                              color: theme.primaryColor,
-                              
-                            ),),
+                            Row(
+                              children: [
+                                Text(
+                                  "      New Reading",
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.ubuntu(
+                                  fontSize: _size.height*0.02,
+                                  color: theme.primaryColor,
+                                  
+                                ),),
+                              ],
+                            ),
                             Container(
                             margin: EdgeInsets.only(bottom: _size.height * 0.02,top: _size.height*0.008),
                             padding: EdgeInsets.symmetric(
@@ -315,7 +329,8 @@ TextEditingController newReadingController = TextEditingController();
                                 key: readerFormKey,
                                 child: TextFormField(
                                       controller: newReadingController,
-                                      // readOnly: true,
+                                      cursorColor: theme.primaryColor,
+                                      keyboardType: TextInputType.number,
                                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                       decoration:   InputDecoration(
                                         border: InputBorder.none,
@@ -353,17 +368,10 @@ TextEditingController newReadingController = TextEditingController();
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(30))),
                                       onPressed: () {
-                                         if (!readerFormKey.currentState!.validate()) {return;}
-                                          confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
-                                        // readerApi(context, theme, readerLoginIdS, addressIdd, addressPreviousReading, newReadingController.text);
-                                        
-                                        // msgDialogBox(context, theme, "success");
-      
-      
-                                      // loadingIndicator(context);
-                                      // logOut(context, true);
-                                        // logoutCheck(readerLoginIdS, context);
-                                      },
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CameraScreen()));
+                                      //    if (!readerFormKey.currentState!.validate()) {return;}
+                                      //     confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
+                                       },
                           child: LayoutBuilder(builder:
                               (BuildContext context, BoxConstraints constraints) {
                             return Text(
