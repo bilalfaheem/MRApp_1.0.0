@@ -1,9 +1,11 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrapp/screens/CameraScreen/camera.dart';
+import 'package:mrapp/screens/CameraScreen/camera_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/function/gas_addresses.dart';
 import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
@@ -367,8 +369,10 @@ TextEditingController newReadingController = TextEditingController();
                                           primary: theme.primaryColor,
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(30))),
-                                      onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CameraScreen()));
+                                      onPressed: () async{
+                                        await availableCameras().then((value) => Navigator.push(context, MaterialPageRoute(builder: (_) => CameraPage(cameras: value))));
+
+                                        // Navigator.push(context, MaterialPageRoute(builder: (context)=>CameraPage(cameras: cameras)));
                                       //    if (!readerFormKey.currentState!.validate()) {return;}
                                       //     confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
                                        },
