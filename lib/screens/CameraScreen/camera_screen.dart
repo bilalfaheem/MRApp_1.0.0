@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,40 +49,43 @@ class _CameraPageState extends State<CameraPage> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => PreviewPage(
-                    picture: picture,
-                  )));
+              builder: (context) => 
+              PreviewPagee(picture: picture)
+              // PreviewPage(
+              //       picture: picture,
+              //     )
+                  ));
     } on CameraException catch (e) {
       debugPrint('Error occured while taking picture: $e');
       return null;
     }
   }
 
-    Future takePictureSave() async {
-    debugPrint("Taking Picture");
-    if (!_cameraController.value.isInitialized) {
-      return null;
-    }
-    if (_cameraController.value.isTakingPicture) {
-      return null;
-    }
-    try {
-       await _cameraController.setFlashMode(FlashMode.off);
-       await _cameraController.setFocusMode(FocusMode.auto);
-       await _cameraController.setExposureMode(ExposureMode.auto);
-      //  await _cameraController.set
-      XFile picture = await _cameraController.takePicture();
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => PreviewPage(
-                    picture: picture,
-                  )));
-    } on CameraException catch (e) {
-      debugPrint('Error occured while taking picture: $e');
-      return null;
-    }
-  }
+  //   Future takePictureSave() async {
+  //   debugPrint("Taking Picture");
+  //   if (!_cameraController.value.isInitialized) {
+  //     return null;
+  //   }
+  //   if (_cameraController.value.isTakingPicture) {
+  //     return null;
+  //   }
+  //   try {
+  //      await _cameraController.setFlashMode(FlashMode.off);
+  //      await _cameraController.setFocusMode(FocusMode.auto);
+  //      await _cameraController.setExposureMode(ExposureMode.auto);
+  //     //  await _cameraController.set
+  //     XFile picture = await _cameraController.takePicture();
+  //     Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //             builder: (context) => PreviewPage(
+  //                   picture: picture,
+  //                 )));
+  //   } on CameraException catch (e) {
+  //     debugPrint('Error occured while taking picture: $e');
+  //     return null;
+  //   }
+  // }
 
   Future initCamera(CameraDescription cameraDescription) async {
     _cameraController =  CameraController(cameraDescription, ResolutionPreset.high,enableAudio: false);
@@ -96,25 +101,27 @@ class _CameraPageState extends State<CameraPage> {
     Future<String> resizePhoto(String filePath) async {
       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
 
-      int width = properties.width;
-      var offset = (properties.height - properties.width) / 2;
+      int width = properties.width!.toInt() ;
+      debugPrint("$width\width of picture");
+       var offset = (properties.height! - (properties.height!*0.3)) / 2;
+      // var offset = (properties.height - properties.width) / 2;
 
       File croppedFile = await FlutterNativeImage.cropImage(
           filePath, 0, offset.round(), width, width);
 
       return croppedFile.path;
   }
-    Future<String> resizePhotoDirect(String filePath) async {
-      ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
+  //   Future<String> resizePhotoDirect(String filePath) async {
+  //     ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
 
-      int? width = properties.width;
-      var offset = (properties.height - properties.width) / 2;
+  //     int? width = properties.width;
+  //     var offset = (properties.height - properties.width) / 2;
 
-      File croppedFile = await FlutterNativeImage.cropImage(
-          filePath, 0, offset.round(), width, width);
+  //     File croppedFile = await FlutterNativeImage.cropImage(
+  //         filePath, 0, offset.round(), width, width);
 
-      return croppedFile.path;
-  }
+  //     return croppedFile.path;
+  // }
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

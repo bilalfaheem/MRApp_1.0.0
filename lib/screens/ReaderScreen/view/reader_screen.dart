@@ -4,13 +4,9 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mrapp/screens/CameraScreen/camera.dart';
 import 'package:mrapp/screens/CameraScreen/camera_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/function/gas_addresses.dart';
-import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
-import 'package:mrapp/screens/ReaderScreen/view/DialogBox/confirm_dialog_box.dart';
-import 'package:mrapp/screens/ReaderScreen/view/DialogBox/loading_dialog_box.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/headingbar.dart';
 import 'package:mrapp/utils/logoutcheck.dart';
