@@ -1,5 +1,7 @@
 const apiAddress = "https://cybernsoft.com/api/";
 
+String meterImageFilePath="";
+
 const double paddingTop = 0.01;
 const double paddingHorizontal = 0.05;
 const double paddingBottom = 0.02;

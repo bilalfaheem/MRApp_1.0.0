@@ -45,8 +45,8 @@ import 'package:mrapp/screens/CameraScreen/crop_screen.dart';
 // }
 
 class PreviewPagee extends StatefulWidget {
-  final XFile picture;
-  const PreviewPagee({required this.picture});
+  final String picture;
+   PreviewPagee({required this.picture});
 
   @override
   State<PreviewPagee> createState() => _PreviewPageeState();
@@ -55,23 +55,23 @@ class PreviewPagee extends StatefulWidget {
 
 class _PreviewPageeState extends State<PreviewPagee> {
   //  File cropFile =  picture  ; 
-  Future<String> resizePhoto(String filePath) async {
-      ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
+//   Future<String> resizePhoto(String filePath) async {
+//       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
 
-      int width = properties.width!.toInt() ;
-      debugPrint("$width\width of pictureeeeeeeeeeeeeeeeeeeeeeeeeeee");
-       var offset = (properties.height! - (properties.height!*0.3)) / 2;
-      // var offset = (properties.height - properties.width) / 2;
-print("into croppppppppppppppppppppppppppppcrop");
-      File croppedFile = await FlutterNativeImage.cropImage(
-          filePath, 0, offset.round(), width, width);
-          // cropFile = croppedFile;
-          setState(() {
-            // _cropped = true;
-          });
+//       int width = properties.width!.toInt() ;
+//       debugPrint("$width\width of pictureeeeeeeeeeeeeeeeeeeeeeeeeeee");
+//        var offset = (properties.height! - (properties.height!*0.3)) / 2;
+//       // var offset = (properties.height - properties.width) / 2;
+// print("into croppppppppppppppppppppppppppppcrop");
+//       File croppedFile = await FlutterNativeImage.cropImage(
+//           filePath, 0, offset.round(), width, width);
+//           // cropFile = croppedFile;
+//           setState(() {
+//             // _cropped = true;
+//           });
 
-      return croppedFile.path;
-  }
+//       return croppedFile.path;
+//   }
 
   // File
   // @override
@@ -85,17 +85,33 @@ print("into croppppppppppppppppppppppppppppcrop");
       appBar: AppBar(title: const Text('Preview Page')),
       body: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Image.file(File(widget.picture.path), fit: BoxFit.cover, width: 250),
+          Image.file(File(widget.picture), fit: BoxFit.cover, width: 250),
           const SizedBox(height: 24),
-          Text(widget.picture.name),
-          ElevatedButton(
-            onPressed: (){
-              // resizePhoto(widget.picture.path);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CropScreenn(picture: widget.picture)));
-            }, child: Text("Crop")),
+          // Text(widget.picture.name),
+          // ElevatedButton(
+          //   onPressed: (){
+          //     // resizePhoto(widget.picture.path);
+          //     Navigator.push(context, MaterialPageRoute(builder: (context) => CropScreenn(picture: widget.picture)));
+          //   }, child: Text("Crop")),
         
 
         ]),
+      ),
+    );
+  }
+}
+
+class PictureMeter extends StatelessWidget {
+  String picturePath;
+   PictureMeter({required this.picturePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Image.file(File(picturePath))
+        ],
       ),
     );
   }

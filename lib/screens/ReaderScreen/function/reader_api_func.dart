@@ -1,5 +1,7 @@
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:path/path.dart';
+import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
@@ -8,6 +10,70 @@ import 'package:mrapp/screens/ReaderScreen/view/DialogBox/loading_dialog_box.dar
 import 'package:mrapp/screens/ReaderScreen/view/DialogBox/msg_dialog_box.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:provider/provider.dart';
+
+import "package:async/async.dart";
+
+import 'package:path/path.dart';
+
+import 'dart:io';
+
+import 'package:http/http.dart' as http;
+
+Future addProduct(File imageFile) async{
+// ignore: deprecated_member_use
+var stream= new http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+var length= await imageFile.length();
+var uri = Uri.parse("https://cybernsoft.com/api/create_gas_bill.php");
+
+var request = new http.MultipartRequest("POST", uri);
+
+var multipartFile = new http.MultipartFile("image", stream, length, filename: basename(imageFile.path));
+
+request.files.add(multipartFile);
+request.fields['address_id'] = "242";
+request.fields['previous_reading'] = "50";
+request.fields['current_reading'] = "300";
+request.fields['g_user_id'] = "1";
+
+var respond = await request.send();
+if(respond.statusCode==200){
+  print("Image Uploaded");
+}else{
+  print("Upload Failed");
+}}
+
+
+
+upload(File imageFile) async {    
+      // open a bytestream
+      var stream = new http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
+      // get file length
+      var length = await imageFile.length();
+
+      // string to uri
+      var uri = Uri.parse("https://cybernsoft.com/api/create_gas_bill.php");
+
+      // create multipart request
+      var request = new http.MultipartRequest("POST", uri);
+
+      // multipart that takes file
+      var multipartFile = new http.MultipartFile('file', stream, length,
+          filename: basename(imageFile.path));
+
+      // add file to multipart
+      request.files.add(multipartFile);
+
+      // send
+      var response = await request.send();
+      print(response.statusCode);
+
+      // listen for response
+      response.stream.transform(utf8.decoder).listen((value) {
+        print(value);
+      });
+    }
+
+
 
 Future readerApi(context,theme,String readerId,String addressId, String previousReader,String currentReading) async {
   print(readerId+addressId+previousReader+currentReading);
@@ -26,7 +92,7 @@ Future readerApi(context,theme,String readerId,String addressId, String previous
         "address_id": addressId,
         "previous_reading":previousReader,
         "current_reading": currentReading,
-        "image":"image"
+        "image": File(meterImageFilePath)
         });
 
   if (Response.statusCode == 200) {

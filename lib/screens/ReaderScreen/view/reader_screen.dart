@@ -1,13 +1,15 @@
+import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
+import 'package:mrapp/utils/constant.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrapp/screens/CameraScreen/camera_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/function/gas_addresses.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
-import 'package:mrapp/utils/constant.dart';
+import 'package:mrapp/screens/ReaderScreen/view/DialogBox/confirm_dialog_box.dart';
 import 'package:mrapp/utils/headingbar.dart';
 import 'package:mrapp/utils/logoutcheck.dart';
 import 'package:mrapp/utils/responsive.dart';
@@ -247,9 +249,12 @@ TextEditingController newReadingController = TextEditingController();
                                     color: theme.dividerColor),
                                 child: Center(
                                   child: TextFormField(
+                                    // textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 20,),
                                     controller: addressFixController,
                                     readOnly: true,
                                     decoration:   InputDecoration(
+                                      
                                       border: InputBorder.none,
                                       filled: true,
                                       fillColor: Colors.transparent,
@@ -289,6 +294,7 @@ TextEditingController newReadingController = TextEditingController();
                                 color: theme.dividerColor),
                             child: Center(
                               child: TextFormField(
+                                style: TextStyle(fontSize: 20,),
                                     controller: previousReadingController,
                                     readOnly: true,
                                     decoration:  const InputDecoration(
@@ -326,6 +332,7 @@ TextEditingController newReadingController = TextEditingController();
                               child: Form(
                                 key: readerFormKey,
                                 child: TextFormField(
+                                  style: TextStyle(fontSize: 20,),
                                       controller: newReadingController,
                                       cursorColor: theme.primaryColor,
                                       keyboardType: TextInputType.number,
@@ -348,10 +355,50 @@ TextEditingController newReadingController = TextEditingController();
                                     ),
                               ))),
       // Add Reading Button                                
-                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                 children: [
-                                   Container(
+                               Consumer<GasReaderProvider>(
+                                 builder: (context,value,child) {
+                                   return value.meterImage? 
+                                   Column(
+                            children: [
+                              Image.file(File(meterImageFilePath)),
+                                Container(
+                              margin:
+                                      EdgeInsets.only(top: height(50), bottom: height(20)),
+                              height: height(48),
+                              width: width(220),
+                              decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100),
+                                      
+                                      ),
+                              child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          primary: theme.primaryColor,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(30))),
+                                      onPressed: () async{
+                                        addProduct(File(meterImageFilePath));
+                                        // upload(File(meterImageFilePath));
+                                        // await availableCameras().then((value) => Navigator.push(context, MaterialPageRoute(builder: (_) => CameraPage(cameras: value))));
+
+                                       
+                                        //  if (!readerFormKey.currentState!.validate()) {return;}
+                                        //   confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
+                                       },
+                          child: LayoutBuilder(
+                            builder:
+                              (BuildContext context, BoxConstraints constraints) {
+                            return Text(
+                                    // constraints.maxWidth.toStringAsFixed(2),
+                                    "Add Reading",
+                                    style: GoogleFonts.ubuntu(
+                                        fontSize: constraints.maxHeight * 0.44,
+                                        // width(30),
+                                        // MediaQuery.of(context).size.height * 0.04,
+                                        color: theme.cardColor));
+                          })))
+                            ],
+                          ):
+                           Container(
                               margin:
                                       EdgeInsets.only(top: height(50), bottom: height(20)),
                               height: height(48),
@@ -372,18 +419,19 @@ TextEditingController newReadingController = TextEditingController();
                                       //    if (!readerFormKey.currentState!.validate()) {return;}
                                       //     confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
                                        },
-                          child: LayoutBuilder(builder:
+                          child: LayoutBuilder(
+                            builder:
                               (BuildContext context, BoxConstraints constraints) {
                             return Text(
                                     // constraints.maxWidth.toStringAsFixed(2),
-                                    "Add Reading",
+                                    "Camera",
                                     style: GoogleFonts.ubuntu(
                                         fontSize: constraints.maxHeight * 0.44,
                                         // width(30),
                                         // MediaQuery.of(context).size.height * 0.04,
                                         color: theme.cardColor));
-                          }))),
-                                 ],
+                          })));
+                                 }
                                ),
                                   ],
                       );
