@@ -332,11 +332,13 @@ TextEditingController newReadingController = TextEditingController();
                               child: Form(
                                 key: readerFormKey,
                                 child: TextFormField(
+                                  // maxLength:8 ,
                                   style: TextStyle(fontSize: 20,),
                                       controller: newReadingController,
                                       cursorColor: theme.primaryColor,
                                       keyboardType: TextInputType.number,
-                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly,
+                                       LengthLimitingTextInputFormatter(8)],
                                       decoration:   InputDecoration(
                                         border: InputBorder.none,
                                         filled: true,
@@ -350,7 +352,9 @@ TextEditingController newReadingController = TextEditingController();
                                       validator: (value){
                                         if(value == null ||value.isEmpty|| value.length<6 || value.length>8 ){
                                           return "Enter Correct Reading";
-                                        }
+                                        } else if(int.parse(value) < int.parse(previousReadingController.text)){
+                                          return "Wrong Reading";
+                                        };
                                       },
                                     ),
                               ))),
@@ -376,13 +380,13 @@ TextEditingController newReadingController = TextEditingController();
                                           shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(30))),
                                       onPressed: () async{
-                                        addProduct(File(meterImageFilePath));
+                                        // addProduct(File(meterImageFilePath));
                                         // upload(File(meterImageFilePath));
                                         // await availableCameras().then((value) => Navigator.push(context, MaterialPageRoute(builder: (_) => CameraPage(cameras: value))));
 
                                        
-                                        //  if (!readerFormKey.currentState!.validate()) {return;}
-                                        //   confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
+                                         if (!readerFormKey.currentState!.validate()) {return;}
+                                          confirmDialogBox(context, theme, addressAddress, addressIdd, addressPreviousReading, newReadingController.text);
                                        },
                           child: LayoutBuilder(
                             builder:

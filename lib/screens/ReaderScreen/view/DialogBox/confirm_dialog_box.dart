@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
 import 'package:mrapp/screens/ReaderScreen/view/DialogBox/dialog_header.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/responsive.dart';
+import 'dart:io';
 
-void confirmDialogBox(context,theme,Address,addressId,previousReader,Reading) {
+void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
   final _size = MediaQuery.of(context).size;
   showGeneralDialog(
     context: context,
@@ -51,7 +51,7 @@ void confirmDialogBox(context,theme,Address,addressId,previousReader,Reading) {
                             fontSize: height(18),
                             // _size.height * 0.03,
                             color: theme.highlightColor)),
-                    Text(Address,
+                    Text(address,
                         maxLines: 2,
                         style: GoogleFonts.ubuntu(
                             fontSize: height(18),
@@ -70,7 +70,7 @@ void confirmDialogBox(context,theme,Address,addressId,previousReader,Reading) {
                             fontSize: height(18),
                             // _size.height * 0.03,
                             color: theme.highlightColor)),
-                    Text("$Reading",
+                    Text("$reading",
                         maxLines: 2,
                         style: GoogleFonts.ubuntu(
                             fontSize: height(18),
@@ -99,7 +99,8 @@ void confirmDialogBox(context,theme,Address,addressId,previousReader,Reading) {
                                     borderRadius:
                                         BorderRadius.circular(_size.width * 0.1))),
                             onPressed: () {
-                              readerApi(context, theme, readerLoginIdS, addressId, previousReader, Reading);
+                              addGasReadingFunc(context,theme,File(meterImageFilePath), addressId, previousReader, reading);
+                              // readerApi(context, theme, readerLoginIdS, addressId, previousReader, reading);
                             },
                             child: Padding(
                               padding: EdgeInsets.all(0),

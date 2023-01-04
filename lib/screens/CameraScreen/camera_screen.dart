@@ -109,13 +109,11 @@ class _CameraPageState extends State<CameraPage> {
         void meterImageProvider(bool status){
       Provider.of<GasReaderProvider>(context,listen: false).meterImageFunc(status);
     }
+
     Future<String> resizePhoto(String filePath) async {
       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
-    // print('$filePath file path');
       int width = properties.width!.toInt() ;
-      // debugPrint("$width width of pictureeeeeeeeeeeeeeeeeeeeeeeeeeee");
        var offset = (properties.height! - (properties.height!*0.3)) / 2;
-      // var offset = (properties.height - properties.width) / 2;
       int cropHeight = properties.height!.toInt();
       int cropWidth = properties.width!.toInt();
 
@@ -127,15 +125,20 @@ class _CameraPageState extends State<CameraPage> {
       280,//height 720
       cropHeight //width 1280
        );
-       if(cropImageFile != null){
-          File compressedFile = await FlutterNativeImage.compressImage(cropImageFile.path,quality: 70);
-          meterImageFilePath = compressedFile.path;
-          meterImageProvider(true);
-       }
-     
+
+      if(cropImageFile != null){
+        meterImageFilePath = cropImageFile.path;
+        meterImageProvider(true);
+        Navigator.pop(context);
+      }
+
+      //  if(cropImageFile != null){
+      //     File compressedFile = await FlutterNativeImage.compressImage(cropImageFile.path,quality: 100);
+      //     meterImageFilePath = compressedFile.path;
+      //     meterImageProvider(true);
+      //     Navigator.pop(context);
+      //  }
        
-       
-       print(meterImageFilePath);
        return cropImageFile.path;
   }
 
@@ -150,21 +153,13 @@ class _CameraPageState extends State<CameraPage> {
     try {
        await _cameraController.setFlashMode(FlashMode.off);
        await _cameraController.setFocusMode(FocusMode.auto);
-       await _cameraController.setExposureMode(ExposureMode.auto);
+      //  await _cameraController.setExposureMode(ExposureMode.auto);
       //  await _cameraController.set
       XFile picture = await _cameraController.takePicture();
+      print(picture.path);
       if(picture != null){
         await resizePhoto(picture.path);
       }
-      
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //         builder: (context) => 
-      //         // CropScreenn(picture: picture)
-      //          PreviewPagee(picture: imageFile)
-            
-      //             ));
     } on CameraException catch (e) {
       debugPrint('Error occured while taking picture: $e');
       return null;
