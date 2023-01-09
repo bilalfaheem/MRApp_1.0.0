@@ -5,9 +5,11 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_image/flutter_native_image.dart';
+import 'package:mrapp/screens/CameraScreen/preview_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:provider/provider.dart';
+import 'dart:async';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.cameras}) : super(key: key);
@@ -40,7 +42,7 @@ class _CameraPageState extends State<CameraPage> {
 
 
   //   Future takePictureSave() async {
-  //   debugPrint("Taking Picture");
+  //   debugPrint("Taking Pictureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
   //   if (!_cameraController.value.isInitialized) {
   //     return null;
   //   }
@@ -56,8 +58,8 @@ class _CameraPageState extends State<CameraPage> {
   //     Navigator.push(
   //         context,
   //         MaterialPageRoute(
-  //             builder: (context) => PreviewPage(
-  //                   picture: picture,
+  //             builder: (context) => PreviewPagee(
+  //                   picture: picture.path,
   //                 )));
   //   } on CameraException catch (e) {
   //     debugPrint('Error occured while taking picture: $e');
@@ -111,24 +113,25 @@ class _CameraPageState extends State<CameraPage> {
     }
 
     Future<String> resizePhoto(String filePath) async {
+      print("resizeeeeeeeeeeeeeee func");
       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
-      int width = properties.width!.toInt() ;
-       var offset = (properties.height! - (properties.height!*0.3)) / 2;
       int cropHeight = properties.height!.toInt();
       int cropWidth = properties.width!.toInt();
+      int imageHeight =int.parse((cropHeight*0.25).toString().split(".")[0]);
+      int originY =int.parse((cropHeight*0.38).toString().split(".")[0]);
 
-      File cropImageFile = await FlutterNativeImage.cropImage(filePath, 
-      // properties.width!*0.1.toInt(),  
-      // properties.height!*0.3.toInt(), 
-      500, // distance from top
-      0, // xaxis,
-      280,//height 720
-      cropHeight //width 1280
+      File cropImageFile = await FlutterNativeImage.cropImage(
+      filePath,
+      0,
+      originY, 
+      cropWidth,
+      imageHeight 
        );
 
       if(cropImageFile != null){
-        meterImageFilePath = cropImageFile.path;
-        meterImageProvider(true);
+         meterImageFilePath = cropImageFile.path;
+        //remove
+         meterImageProvider(true);
         Navigator.pop(context);
       }
 
@@ -141,9 +144,43 @@ class _CameraPageState extends State<CameraPage> {
        
        return cropImageFile.path;
   }
+  //     Future<String> resizePhotoPlus(String filePath) async {
+  //     print("resizeeeeeeeeeeeeeee func");
+  //     ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
+  //      int width = properties.width!.toInt() ;
+  //       var offset = (properties.height! - (properties.height!*0.3)) / 2;
+  //     int cropHeight = properties.height!.toInt();
+  //     // int cropWidth = properties.width!.toInt();
+
+  //     File cropImageFile = await FlutterNativeImage.cropImage(filePath, 
+  //     // properties.width!*0.1.toInt(),  
+  //     // properties.height!*0.3.toInt(), 
+  //     int.parse(offset.toString()),
+  //     // 500, // distance from top
+  //     0, // xaxis,
+  //     width,//height 720
+  //     // 280
+  //      cropHeight //width 1280
+  //      );
+
+      
+  //     //    if(filePath != null){
+  //     //     File compressedFile = await FlutterNativeImage.compressImage(filePath,quality: 100,percentage: 100);
+  //     //     meterImageFilePath = compressedFile.path;
+  //     //     // meterImageProvider(true);
+  //     //     // Navigator.pop(context);
+  //     //  }
+  //      if(cropImageFile != null){
+  //        meterImageFilePath = cropImageFile.path;
+  //       //remove
+  //        meterImageProvider(true);
+  //       Navigator.pop(context);
+  //     }
+  //      return meterImageFilePath;
+  // }
 
   Future takePicture() async {
-    debugPrint("Taking Picture");
+    debugPrint("Taking Pictureeeeeeeeeeeeeeeeeeeeeeeeeeeeee Take");
     if (!_cameraController.value.isInitialized) {
       return null;
     }
@@ -158,7 +195,8 @@ class _CameraPageState extends State<CameraPage> {
       XFile picture = await _cameraController.takePicture();
       print(picture.path);
       if(picture != null){
-        await resizePhoto(picture.path);
+      //  await resizePhotoPlus(picture.path);
+         await resizePhoto(picture.path);
       }
     } on CameraException catch (e) {
       debugPrint('Error occured while taking picture: $e');
@@ -242,7 +280,9 @@ class _CameraPageState extends State<CameraPage> {
                 )),
                 Expanded(
                     child: IconButton(
-                  onPressed: takePicture,
+                  onPressed:
+                     takePicture,
+                    //  takePicture,
                   iconSize: 60,
                   padding: EdgeInsets.zero,
                   constraints: const BoxConstraints(),

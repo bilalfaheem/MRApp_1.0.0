@@ -17,7 +17,7 @@ class GasAddress_Api {
   static Future<List<GasAddress>> getAddressSuggestions(String query) async {
     final url = Uri.parse("${apiAddress}gas_user_address.php");
     final response = await http.post(url,body: {
-      "project_id":readerLoginSocietyidS
+      "project_id":  readerLoginSocietyidS
     });
 
     if (response.statusCode == 200) {
