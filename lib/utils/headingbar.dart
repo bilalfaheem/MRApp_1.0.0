@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrapp/utils/responsive.dart';
 
-Widget headingBar(context, Heading, double Heading_Size, Icon_Name) {
+Widget headingBar(context, heading, double headingSize, iconName) {
   SizeConfig().init(context);
   final ThemeData theme = Theme.of(context);
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       IconButton(
-          onPressed: Icon_Name == "Close" || Icon_Name == "Back"
+          onPressed: iconName == "Close" || iconName == "Back"
               ? () {
                   Navigator.pop(context);
                 }
               : null,
-          icon: Icon_Name == "Close"
+          icon: iconName == "Close"
               ? Image.asset(
                   "assets/Icons/close.png",
                   height: height(14),
                   color: theme.primaryColor,
                 )
-              : Icon_Name == "Back"
+              : iconName == "Back"
                   ? Icon(
                       Icons.arrow_back_ios,
                       size: height(20),
@@ -34,20 +34,20 @@ Widget headingBar(context, Heading, double Heading_Size, Icon_Name) {
       // SizedBox(width: _size.width * 0.205),
       Center(
         child: Text(
-          Heading,
+          heading,
           style: GoogleFonts.ubuntu(
-              fontSize: height(Heading_Size), color: theme.focusColor),
+              fontSize: height(headingSize), color: theme.focusColor),
         ),
       ),
       IconButton(
           onPressed: null,
-          icon: Icon_Name == "Close"
+          icon: iconName == "Close"
               ? Image.asset(
                   "assets/Icons/close.png",
                   height: height(14),
                   color: Colors.transparent,
                 )
-              : Icon_Name == "Back"
+              : iconName == "Back"
                   ? Icon(
                       Icons.arrow_back_ios,
                       color: Colors.transparent,

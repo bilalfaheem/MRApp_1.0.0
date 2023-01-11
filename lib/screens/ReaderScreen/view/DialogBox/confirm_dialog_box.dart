@@ -29,6 +29,10 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
           // _size.width * 0.9,
           height: height(250),
           //  _size.height * 0.4,
+          margin:const EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(_size.width * 0.1)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +107,7 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
                               // readerApi(context, theme, readerLoginIdS, addressId, previousReader, reading);
                             },
                             child: Padding(
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               // _size.height * 0.01),
                               child: Text("Confirm",
                                   style: GoogleFonts.ubuntu(
@@ -155,19 +159,16 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
             ],
           ),
           //  SizedBox.expand(child: FlutterLogo()),
-          margin: EdgeInsets.symmetric(horizontal: 20),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(_size.width * 0.1)),
+          
         ),
       );
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
       if (anim.status == AnimationStatus.reverse) {
-        tween = Tween(begin: Offset(-1, 0), end: Offset.zero);
+        tween = Tween(begin: const Offset(-1, 0), end: Offset.zero);
       } else {
-        tween = Tween(begin: Offset(1, 0), end: Offset.zero);
+        tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
       }
 
       return SlideTransition(

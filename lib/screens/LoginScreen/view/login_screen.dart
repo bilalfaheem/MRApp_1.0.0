@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mrapp/screens/LoginScreen/function/login_api_func.dart';
 import 'package:mrapp/screens/LoginScreen/provider/login_password_provider.dart';
-import 'package:mrapp/screens/LoginScreen/provider/society_name_provider.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/internet.dart';
 import 'package:mrapp/utils/responsive.dart';

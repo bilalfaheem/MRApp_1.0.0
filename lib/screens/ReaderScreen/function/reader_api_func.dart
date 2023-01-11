@@ -37,11 +37,11 @@ if(respond.statusCode==200){
   Navigator.pop(context);
   msgDialogBox(context, theme, "Successfully Added",true);
   
-  print("Image Uploaded");
+  // print("Image Uploaded");
 }else{
   Navigator.pop(context);
   msgDialogBox(context, theme, "Failed to Add",false);
-  print("Upload Failed");
+  // print("Upload Failed");
 }}
 
 
@@ -78,11 +78,11 @@ if(respond.statusCode==200){
 
 
 Future readerApi(context,theme,String readerId,String addressId, String previousReader,String currentReading) async {
-  print(readerId+addressId+previousReader+currentReading);
-  print("$readerId readerId");
-  print("$addressId Address Id");
-  print("$previousReader previous reader");
-  print("$currentReading current reading");
+  // print(readerId+addressId+previousReader+currentReading);
+  // print("$readerId readerId");
+  // print("$addressId Address Id");
+  // print("$previousReader previous reader");
+  // print("$currentReading current reading");
 
   final gasReaderProvider = Provider.of<GasReaderProvider>(context, listen: false);
   Navigator.pop(context);
@@ -101,7 +101,7 @@ Future readerApi(context,theme,String readerId,String addressId, String previous
    
     var data = jsonDecode(Response.body.toString());
     String statusReaderApi= data["status"].toString();
-    print(statusReaderApi);
+    // print(statusReaderApi);
     if(statusReaderApi == "200"){
       Navigator.pop(context);
       msgDialogBox(context, theme, "Successfully Added",true);
@@ -120,7 +120,7 @@ Future readerApi(context,theme,String readerId,String addressId, String previous
 
     // return Active_User_List;
   } else {
-    print("reader Api response is not 200");
+    // print("reader Api response is not 200");
     // return Active_User_List;
   }
 }

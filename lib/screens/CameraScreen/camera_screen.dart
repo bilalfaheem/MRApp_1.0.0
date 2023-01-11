@@ -5,7 +5,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_image/flutter_native_image.dart';
-import 'package:mrapp/screens/CameraScreen/preview_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:provider/provider.dart';
@@ -113,19 +112,41 @@ class _CameraPageState extends State<CameraPage> {
     }
 
     Future<String> resizePhoto(String filePath) async {
-      print("resizeeeeeeeeeeeeeee func");
+      // print("resizeeeeeeeeeeeeeee func");
       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
-      int cropHeight = properties.height!.toInt();
-      int cropWidth = properties.width!.toInt();
-      int imageHeight =int.parse((cropHeight*0.25).toString().split(".")[0]);
-      int originY =int.parse((cropHeight*0.38).toString().split(".")[0]);
+      int cropWidth = 0;
+      int cropHeight = 0;
+      int originX = 0;
+      int originY = 0;
+      int imageHeight = 0;
+      int imageWidth = 0;
+      // int imageHeight = 0;
+      // int orig
+      if(properties.height!.toInt()==720){
+         cropWidth = properties.height!.toInt();
+         cropHeight = properties.width!.toInt();
+         originX = int.parse((cropHeight*0.38).toString().split(".")[0]);
+         originY = 0;
+         imageWidth = int.parse((cropHeight*0.25).toString().split(".")[0]);
+         imageHeight = cropWidth;
+      } else{
+        cropWidth = properties.width!.toInt();
+        cropHeight = properties.height!.toInt();
+        originX = 0;
+        originY =int.parse((cropHeight*0.38).toString().split(".")[0]);
+        imageWidth = cropWidth;
+        imageHeight =  int.parse((cropHeight*0.25).toString().split(".")[0]);
+      }
+      // print("$cropHeight crop height");
+      // print("$cropWidth crop width");
 
       File cropImageFile = await FlutterNativeImage.cropImage(
       filePath,
-      0,
-      originY, 
-      cropWidth,
-      imageHeight 
+      originX,
+      originY,
+      imageWidth,
+      imageHeight,
+       
        );
 
       if(cropImageFile != null){

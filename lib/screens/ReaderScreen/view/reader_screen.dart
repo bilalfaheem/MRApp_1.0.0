@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mrapp/screens/ReaderScreen/function/reader_api_func.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -172,16 +171,10 @@ TextEditingController newReadingController = TextEditingController();
                                       previousReadingController.text = addr_s.previousreading;
                                       value.addressSearchingFunc(false);
       
-                                      print(addr_s.previousreading.toString());
-                                      print(addr_s.address.toString());
-                                      print(addr_s.id.toString());
+                                      // print(addr_s.previousreading.toString());
+                                      // print(addr_s.address.toString());
+                                      // print(addr_s.id.toString());
       
-                                      // print("${addressIdd} swap to id in swap variable");
-                                      // print(
-                                      //     "${addressAddress.toLowerCase()} swap to address in swap variable");
-      
-                                      // print(addr_s.address);
-                                      // print(addr_s.id);
                                     },
                                     //No item Found
                                     noItemsFoundBuilder: (context) => Container(
@@ -250,7 +243,7 @@ TextEditingController newReadingController = TextEditingController();
                                 child: Center(
                                   child: TextFormField(
                                     // textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 20,),
+                                    style: const TextStyle(fontSize: 20,),
                                     controller: addressFixController,
                                     readOnly: true,
                                     decoration:   InputDecoration(
@@ -261,7 +254,8 @@ TextEditingController newReadingController = TextEditingController();
                                       suffixIcon:IconButton(
                                         onPressed: (){
                                           value.addressSearchingFunc(true);
-                                          print("close pressed");}, 
+                                          
+                                          }, 
                                         icon: Icon(Icons.close,color: theme.primaryColor,),) 
                                       
       
@@ -346,7 +340,7 @@ TextEditingController newReadingController = TextEditingController();
                                         suffixIcon:IconButton(
                                           onPressed: (){
                                             newReadingController.clear();
-                                            print("clear pressed");}, 
+                                            }, 
                                           icon: Icon(Icons.close,color: theme.primaryColor,),) 
                                       ),
                                       validator: (value){

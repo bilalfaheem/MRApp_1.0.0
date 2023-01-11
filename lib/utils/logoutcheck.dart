@@ -9,9 +9,9 @@ void logoutCheck(String userId, context) async {
   if (reponse.statusCode == 200) {
     var updateData = jsonDecode(reponse.body.toString());
 
-    print("${updateData[0]["is_updated"]} User Updated ");
+    // print("${updateData[0]["is_updated"]} User Updated ");
 
-    print("${readerLoginUpdateS} shared update");
+    // print("${readerLoginUpdateS} shared update");
 
     if (readerLoginUpdateS != updateData[0]["is_updated"].toString()
      || readerLoginIdS == null || readerLoginIdS == "null"

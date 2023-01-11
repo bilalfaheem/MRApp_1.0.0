@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mrapp/screens/ReaderScreen/provider/gas_reader_provider.dart';
-import 'package:mrapp/screens/ReaderScreen/view/DialogBox/dialog_header.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/responsive.dart';
-import 'package:provider/provider.dart';
 
 void msgDialogBox(context,theme, textt, bool done) {
       final _size = MediaQuery.of(context).size;
@@ -14,7 +11,7 @@ void msgDialogBox(context,theme, textt, bool done) {
     barrierLabel: "Barrier",
     barrierDismissible: true,
     barrierColor: Colors.black.withOpacity(0.5),
-    transitionDuration: Duration(milliseconds: 350),
+    transitionDuration:const Duration(milliseconds: 350),
     pageBuilder: (_, __, ___) {
       return Center(
         child: Container(
@@ -22,6 +19,9 @@ void msgDialogBox(context,theme, textt, bool done) {
               horizontal: _size.width * 0.07, vertical: _size.height * 0.02),
           width: _size.width * 0.9,
           height: _size.height * 0.28,
+           margin:const EdgeInsets.symmetric(horizontal: 20),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(40)),
           child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,7 +31,7 @@ void msgDialogBox(context,theme, textt, bool done) {
     children: [
      Material(
         color: Colors.transparent,
-        shape: CircleBorder(),
+        shape:const CircleBorder(),
         clipBehavior: Clip.hardEdge,
         //  color: theme.,
         child: IconButton(
@@ -54,7 +54,7 @@ void msgDialogBox(context,theme, textt, bool done) {
           ),
       Material(
         color: Colors.transparent,
-        shape: CircleBorder(),
+        shape:const CircleBorder(),
         clipBehavior: Clip.hardEdge,
         //  color: theme.,
         child: IconButton(
@@ -127,18 +127,16 @@ void msgDialogBox(context,theme, textt, bool done) {
             ],
           ),
           //  SizedBox.expand(child: FlutterLogo()),
-          margin: EdgeInsets.symmetric(horizontal: 20),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(40)),
+         
         ),
       );
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
       if (anim.status == AnimationStatus.reverse) {
-        tween = Tween(begin: Offset(-1, 0), end: Offset.zero);
+        tween = Tween(begin:const Offset(-1, 0), end: Offset.zero);
       } else {
-        tween = Tween(begin: Offset(1, 0), end: Offset.zero);
+        tween = Tween(begin:const Offset(1, 0), end: Offset.zero);
       }
 
       return SlideTransition(

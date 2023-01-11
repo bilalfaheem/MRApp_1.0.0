@@ -25,30 +25,30 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     return ThemeData(
         primaryColor:
-        Color(0xff04543c),
+       const Color(0xff04543c),
         // Color(0xff045337),
         //  Color(0xff015e8b),
         //  Color.fromARGB(208, 23, 113, 109),
         // Colors.green,
-        primaryColorDark:Color(0xff04543c),
+        primaryColorDark:const Color(0xff04543c),
         //  Color.fromARGB(255, 4, 68, 100),
-        primaryColorLight:Color(0xff04543c),
+        primaryColorLight:const Color(0xff04543c),
         //  Color.fromARGB(193, 48, 129, 169),
         scrollbarTheme: ScrollbarThemeData(
           thickness: MaterialStateProperty.all(2),
-          thumbColor: MaterialStateProperty.all(Color.fromARGB(21, 0, 0, 0),),
+          thumbColor: MaterialStateProperty.all(const Color.fromARGB(21, 0, 0, 0),),
           // thumbColor: MaterialStateProperty.all(Colors.grey[500]),
         ),
         //  Color.fromARGB(208, 23, 113, 109),
         // Color.fromARGB(177, 38, 116, 38),
 //text colors
         focusColor: Colors.black,
-        scaffoldBackgroundColor: Color(0xffF5F8FA),
+        scaffoldBackgroundColor: const Color(0xffF5F8FA),
         cardColor: Colors.white,
         // Color.fromARGB(236, 255, 255, 255),
-        dividerColor: Color.fromARGB(21, 0, 0, 0),
+        dividerColor: const Color.fromARGB(21, 0, 0, 0),
 //Card Text
-        highlightColor: Color.fromARGB(135, 0, 0, 0)
+        highlightColor:const Color.fromARGB(135, 0, 0, 0)
 
         // textTheme: TextTheme(
         //     headline1: TextStyle(color: Colors.black, fontSize: 19),
@@ -66,8 +66,8 @@ class CustomTheme with ChangeNotifier {
     return ThemeData(
       primaryColor: Colors.green,
 //text colors
-      focusColor: Colors.white,
-      scaffoldBackgroundColor: Color.fromARGB(153, 0, 0, 0),
+      focusColor:  Colors.white,
+      scaffoldBackgroundColor: const Color.fromARGB(153, 0, 0, 0),
       // textTheme: TextTheme(
       //     headline1: TextStyle(color: Colors.white, fontSize: 19),
       //     button: TextStyle(
