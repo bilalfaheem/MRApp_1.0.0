@@ -26,6 +26,8 @@ const society = "assets/Icon/society.png";
 const gas = "assets/Icon/gas.png";
 const complete = "assets/Icon/complete.png";
 const failed = "assets/Icon/failed.png";
+const security = "assets/Icon/security.png";
+const scanner = "assets/Icon/scanner.png";
 
 //Gif
 const success = "assets/Gif/success.gif";

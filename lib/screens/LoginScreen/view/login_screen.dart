@@ -66,6 +66,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.only(top: height(50), bottom: height(15)),
                   child: Center(
                     child: Image.asset(zSZSaimaLogo,
+                    color: theme.primaryColor,
                         width: width(220),
                         //  MediaQuery.of(context).size.width * 0.7,
                         height: height(100)

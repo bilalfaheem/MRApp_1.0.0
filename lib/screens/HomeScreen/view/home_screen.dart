@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrapp/screens/ProfileScreen/view/profile_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/view/reader_screen.dart';
+import 'package:mrapp/screens/SecurityScreen/view/security_screen.dart';
 import 'package:mrapp/utils/constant.dart';
 
 
@@ -16,7 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   final screens = [
     ReaderScreen() ,
-    ProfileScreen()
+    SecurityScreen(),
+    ProfileScreen(),
+    
   ];
 
   @override
@@ -72,13 +75,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: ImageIcon(const AssetImage( gas),
                         // "assets/Bottom_Bar/Wallet.png"),
                         //color: Colors.black,
-                        size: _size.height * 0.028),
+                        size: 22),
+
+                    label: '',
+                  ),
+                   BottomNavigationBarItem(
+                    // backgroundColor: Colors.blueGrey,
+                    icon: ImageIcon(const AssetImage(security),
+                        // "assets/Bottom_Bar/Wallet.png"),
+                        //color: Colors.black,
+                        size: 22),
 
                     label: '',
                   ),
                   BottomNavigationBarItem(
                     icon: ImageIcon(const AssetImage(profile),
-                        size: _size.height * 0.028),
+                        size: 22),
                     label: '',
                   ),
                 ],

@@ -85,7 +85,7 @@ TextEditingController newReadingController = TextEditingController();
                 //heading
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, _size.height * 0.038),
-                      child: headingBar(context, "Gas Reading", 22, "null")),
+                      child: headingBar(context, "Gas Reading", 20, "null")),
       
                   Consumer<GasReaderProvider>(
                     builder: (context,value,child) {
@@ -344,9 +344,10 @@ TextEditingController newReadingController = TextEditingController();
                                           icon: Icon(Icons.close,color: theme.primaryColor,),) 
                                       ),
                                       validator: (value){
-                                        if(value == null ||value.isEmpty|| value.length<6 || value.length>8 ){
-                                          return "Enter Correct Reading";
-                                        } else if(int.parse(value) < int.parse(previousReadingController.text)){
+                                        if(value == null ||value.isEmpty ){
+                                          return "Enter Reading";
+                                        } else 
+                                        if(int.parse(value.toString()) < int.parse(previousReadingController.text)){
                                           return "Wrong Reading";
                                         };
                                       },

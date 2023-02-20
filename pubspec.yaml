@@ -45,6 +45,19 @@ dependencies:
   camera: ^0.10.0+5
   flutter_native_image: ^0.0.6+1
   image_cropper: ^3.0.1
+  #App Icon launcher
+  flutter_launcher_icons: ^0.11.0
+    #scanner
+  flutter_barcode_scanner: ^2.0.0
+
+  #dateformat
+  intl: ^0.17.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo/ZSZ.png"
 
 dev_dependencies:
   flutter_test:
