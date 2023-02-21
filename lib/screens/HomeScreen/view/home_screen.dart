@@ -1,13 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:mrapp/screens/ProfileScreen/view/profile_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/view/reader_screen.dart';
 import 'package:mrapp/screens/SecurityScreen/view/security_screen.dart';
 import 'package:mrapp/utils/constant.dart';
 
-
 class HomeScreen extends StatefulWidget {
- const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,10 +14,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   final screens = [
-    ReaderScreen() ,
+    ReaderScreen(),
     SecurityScreen(),
     ProfileScreen(),
-    
   ];
 
   @override
@@ -67,19 +64,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 showUnselectedLabels: false,
                 selectedItemColor: theme.primaryColor,
                 //unselectedItemColor: Colors.grey,
-                items:
-                     <BottomNavigationBarItem>
-                    [
+                items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     // backgroundColor: Colors.blueGrey,
-                    icon: ImageIcon(const AssetImage( gas),
+                    icon: ImageIcon(const AssetImage(gas),
                         // "assets/Bottom_Bar/Wallet.png"),
                         //color: Colors.black,
                         size: 22),
 
                     label: '',
                   ),
-                   BottomNavigationBarItem(
+                  BottomNavigationBarItem(
                     // backgroundColor: Colors.blueGrey,
                     icon: ImageIcon(const AssetImage(security),
                         // "assets/Bottom_Bar/Wallet.png"),
@@ -89,8 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(const AssetImage(profile),
-                        size: 22),
+                    icon: ImageIcon(const AssetImage(profile), size: 22),
                     label: '',
                   ),
                 ],

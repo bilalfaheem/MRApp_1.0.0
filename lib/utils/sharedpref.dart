@@ -18,5 +18,4 @@ sharedPrefLoginFunc() async {
 
   // debugPrint("${User_Login_id_S} User id shared pref in functions");
   // print("${User_Login_update_S} User id shared pref in functions update shared");
-
 }

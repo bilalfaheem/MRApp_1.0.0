@@ -52,9 +52,8 @@
 //   State<PreviewPagee> createState() => _PreviewPageeState();
 // }
 
-
 // class _PreviewPageeState extends State<PreviewPagee> {
-//   //  File cropFile =  picture  ; 
+//   //  File cropFile =  picture  ;
 // //   Future<String> resizePhoto(String filePath) async {
 // //       ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
 
@@ -93,7 +92,6 @@
 //               // resizePhoto(widget.picture.path);
 //               Navigator.push(context, MaterialPageRoute(builder: (context) => CropScreenn(picture: widget.picture)));
 //             }, child: Text("Crop")),
-        
 
 //         ]),
 //       ),

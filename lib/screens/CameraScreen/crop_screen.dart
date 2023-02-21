@@ -10,7 +10,6 @@
 // //    final XFile picture;
 // //   const CropScreen({Key? key, required this.picture}) : super(key: key);
 
-  
 //   //     Future<String> resizePhoto(String filePath) async {
 //   //     ImageProperties properties = await FlutterNativeImage.getImageProperties(filePath);
 
@@ -72,13 +71,13 @@
 //       int imageHeight =int.parse((cropHeight*0.25).toString().split(".")[0]);
 //       int originY =int.parse((cropHeight*0.38).toString().split(".")[0]);
 //       print(imageHeight);
-      
+
 //       print(originY);
 //       // print("${properties.width} width");
 //       print("into croppppppppppppppppppppppppppppcrop");
-//       File cropImageFile = await FlutterNativeImage.cropImage(filePath, 
-//       // properties.width!*0.1.toInt(),  
-//       // properties.height!*0.3.toInt(), 
+//       File cropImageFile = await FlutterNativeImage.cropImage(filePath,
+//       // properties.width!*0.1.toInt(),
+//       // properties.height!*0.3.toInt(),
 //       0, // distance from top
 //       originY, // yaxis,
 //       cropWidth,//height 720
@@ -102,18 +101,17 @@
 //   //   super.initState();
 //   // }
 
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(title:  Text('$_cropped Page')),
 //       body: Center(
-//         child: Column(mainAxisSize: MainAxisSize.min, 
+//         child: Column(mainAxisSize: MainAxisSize.min,
 //         children: [
 //             ElevatedButton(
 //             onPressed: (){
 //               resizePhoto(widget.picture);
-             
+
 //             }, child: Text("Crop")),
 //           _cropped?
 //           Image.file(File(imageFile.path), fit: BoxFit.cover, width: 250):

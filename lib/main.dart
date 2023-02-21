@@ -13,7 +13,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await sharedPrefLoginFunc();
   SystemChrome.setPreferredOrientations([
-  DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitUp,
   ]);
   runApp(const MyApp());
 }
@@ -27,15 +27,11 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginPasswordProvider()),
         ChangeNotifierProvider(create: (_) => GasReaderProvider()),
-       
       ],
       child: Builder(builder: (BuildContext context) {
-        
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: 
-          readerLoginIdS == "null"?
-          LoginScreen():HomeScreen(),
+          home: readerLoginIdS == "null" ? LoginScreen() : HomeScreen(),
           // User_Login_id_S == "null" ? Splash_Screen() : Home_Screen(),
 
           theme: CustomTheme.lightTheme,

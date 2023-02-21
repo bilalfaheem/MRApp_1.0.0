@@ -7,18 +7,20 @@ class GasAddress {
   final String address;
   final String previousreading;
 
-  const GasAddress({required this.id, required this.address,required this.previousreading});
+  const GasAddress(
+      {required this.id, required this.address, required this.previousreading});
 
-  static GasAddress fromJson(Map<String, dynamic> json) =>
-      GasAddress(id: json['id'], address: json['address'],previousreading: json['previous_reading']);
+  static GasAddress fromJson(Map<String, dynamic> json) => GasAddress(
+      id: json['id'],
+      address: json['address'],
+      previousreading: json['previous_reading']);
 }
 
 class GasAddress_Api {
   static Future<List<GasAddress>> getAddressSuggestions(String query) async {
     final url = Uri.parse("${apiAddress}gas_user_address.php");
-    final response = await http.post(url,body: {
-      "project_id":  readerLoginSocietyidS
-    });
+    final response =
+        await http.post(url, body: {"project_id": readerLoginSocietyidS});
 
     if (response.statusCode == 200) {
       print(23000);
@@ -29,7 +31,8 @@ class GasAddress_Api {
       //  gasAddressesList_Id = gasAddressesList;
       //  print(gasAddressesList_Id);
 
-      return gasAddressesList.map((json) => GasAddress.fromJson(json))
+      return gasAddressesList
+          .map((json) => GasAddress.fromJson(json))
           .where((_gasAddress) {
         // gasAddressesList_Id.add(_gasAddress.id);
         // gasAddressesList_Address.add(_gasAddress.address);

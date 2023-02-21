@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/responsive.dart';
 
-
-void Order_dialog_loading(context,  theme) {
+void Order_dialog_loading(context, theme) {
   final _size = MediaQuery.of(context).size;
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
     barrierDismissible: false,
     barrierColor: Colors.black.withOpacity(0.5),
-    transitionDuration:const Duration(milliseconds: 350),
+    transitionDuration: const Duration(milliseconds: 350),
     pageBuilder: (_, __, ___) {
       return Center(
         child: Container(
@@ -18,7 +17,7 @@ void Order_dialog_loading(context,  theme) {
               horizontal: _size.width * 0.07, vertical: _size.height * 0.02),
           width: _size.width * 0.9,
           height: height(210),
-            margin:const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(_size.width * 0.1)),
@@ -36,7 +35,7 @@ void Order_dialog_loading(context,  theme) {
               SizedBox(
                 height: _size.height * 0.02,
               ),
-             const Center(
+              const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
                 ),
@@ -47,16 +46,15 @@ void Order_dialog_loading(context,  theme) {
             ],
           ),
           //  SizedBox.expand(child: FlutterLogo()),
-        
         ),
       );
     },
     transitionBuilder: (_, anim, __, child) {
       Tween<Offset> tween;
       if (anim.status == AnimationStatus.reverse) {
-        tween = Tween(begin:const Offset(-1, 0), end: Offset.zero);
+        tween = Tween(begin: const Offset(-1, 0), end: Offset.zero);
       } else {
-        tween = Tween(begin:const Offset(1, 0), end: Offset.zero);
+        tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
       }
 
       return SlideTransition(

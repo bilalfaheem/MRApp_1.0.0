@@ -25,19 +25,21 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     return ThemeData(
         primaryColor: const Color(0xff2c6e49),
-      //  const Color(0xff04543c),
+        //  const Color(0xff04543c),
         // Color(0xff045337),
         //  Color(0xff015e8b),
         //  Color.fromARGB(208, 23, 113, 109),
         // Colors.green,
         primaryColorDark: const Color(0xff2c6e49),
         //  Color.fromARGB(255, 4, 68, 100),
-        primaryColorLight:const Color(0xff2c6e49),
+        primaryColorLight: const Color(0xff2c6e49),
         shadowColor: Color(0xffe9ecef),
         //  Color.fromARGB(193, 48, 129, 169),
         scrollbarTheme: ScrollbarThemeData(
           thickness: MaterialStateProperty.all(2),
-          thumbColor: MaterialStateProperty.all(const Color.fromARGB(21, 0, 0, 0),),
+          thumbColor: MaterialStateProperty.all(
+            const Color.fromARGB(21, 0, 0, 0),
+          ),
           // thumbColor: MaterialStateProperty.all(Colors.grey[500]),
         ),
         //  Color.fromARGB(208, 23, 113, 109),
@@ -49,7 +51,7 @@ class CustomTheme with ChangeNotifier {
         // Color.fromARGB(236, 255, 255, 255),
         dividerColor: const Color.fromARGB(21, 0, 0, 0),
 //Card Text
-        highlightColor:const Color.fromARGB(135, 0, 0, 0)
+        highlightColor: const Color.fromARGB(135, 0, 0, 0)
 
         // textTheme: TextTheme(
         //     headline1: TextStyle(color: Colors.black, fontSize: 19),
@@ -67,7 +69,7 @@ class CustomTheme with ChangeNotifier {
     return ThemeData(
       primaryColor: Colors.green,
 //text colors
-      focusColor:  Colors.white,
+      focusColor: Colors.white,
       scaffoldBackgroundColor: const Color.fromARGB(153, 0, 0, 0),
       // textTheme: TextTheme(
       //     headline1: TextStyle(color: Colors.white, fontSize: 19),

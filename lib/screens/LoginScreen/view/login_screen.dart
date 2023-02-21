@@ -8,7 +8,6 @@ import 'package:mrapp/utils/internet.dart';
 import 'package:mrapp/utils/responsive.dart';
 import 'package:provider/provider.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -22,18 +21,14 @@ class _Login_ScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _Login_formKey = GlobalKey<FormState>();
   TextEditingController cnic_cont = TextEditingController();
   TextEditingController password_cont = TextEditingController();
-    TextEditingController Society_Name_Controller = TextEditingController();
-  TextEditingController Society_Name_Controller_Dropdown = TextEditingController();
-    // address selected
+  TextEditingController Society_Name_Controller = TextEditingController();
+  TextEditingController Society_Name_Controller_Dropdown =
+      TextEditingController();
+  // address selected
   var Society_Select_F = "Null";
   String Society_Select_Id_F = "Null";
-  
+
   // tile click
-
-
-
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +36,13 @@ class _Login_ScreenState extends State<LoginScreen> {
     final _size = MediaQuery.of(context).size;
     SizeConfig().init(context);
 
-  //Society name Provider
-  // final Society_Name_Visibility_provider = Provider.of<SocietyNameVisibilityProvider>(context, listen: false);
-  //SignUpSociety name Provider
-  final Login_Password_Provider  = Provider.of<LoginPasswordProvider>(context, listen: false);
-  //Forget Password
-  // final Contact_No_visibility_provider = Provider.of<Contact_No_Visibility_Provider>(context, listen: false);
+    //Society name Provider
+    // final Society_Name_Visibility_provider = Provider.of<SocietyNameVisibilityProvider>(context, listen: false);
+    //SignUpSociety name Provider
+    final Login_Password_Provider =
+        Provider.of<LoginPasswordProvider>(context, listen: false);
+    //Forget Password
+    // final Contact_No_visibility_provider = Provider.of<Contact_No_Visibility_Provider>(context, listen: false);
 
     return Scaffold(
       // color: theme.scaffoldBackgroundColor,
@@ -66,7 +62,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.only(top: height(50), bottom: height(15)),
                   child: Center(
                     child: Image.asset(zSZSaimaLogo,
-                    color: theme.primaryColor,
+                        color: theme.primaryColor,
                         width: width(220),
                         //  MediaQuery.of(context).size.width * 0.7,
                         height: height(100)
@@ -104,7 +100,8 @@ class _Login_ScreenState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: height(26),top: height(19)),
+                        padding: EdgeInsets.only(
+                            bottom: height(26), top: height(19)),
                         // _size.height * 0.03),
                         child: TextFormField(
                           cursorColor: theme.primaryColor,
@@ -127,171 +124,174 @@ class _Login_ScreenState extends State<LoginScreen> {
                           ),
                           validator: (a) {
                             // first round validation
-                            if(Login_Cnic_Validation == false){
-                            if (a == null || a.isEmpty || a.length < 11) {
-                              return "Enter CNIC/Phone Correctly";
-                            } else{
-                              return null;
-                            }}
+                            if (Login_Cnic_Validation == false) {
+                              if (a == null || a.isEmpty || a.length < 11) {
+                                return "Enter CNIC/Phone Correctly";
+                              } else {
+                                return null;
+                              }
+                            }
                             // second round validation
-                             else if (Login_Cnic_Validation == true){ 
+                            else if (Login_Cnic_Validation == true) {
                               //for loop validation
-                              Login_Cnic_Validation=false;
-                               if (L_status == 0) {
-                              return "Register your Account First";
-                            } else if (L_status == 1) {
-                              return null;
-                              // return "Correct";
-                            } else if (L_status == 2) {
-                              return "Your Account is in Pending for Approval";
-                            } else if (L_status == 3) {
-                              return null;
-                            }} else {
+                              Login_Cnic_Validation = false;
+                              if (L_status == 0) {
+                                return "Register your Account First";
+                              } else if (L_status == 1) {
+                                return null;
+                                // return "Correct";
+                              } else if (L_status == 2) {
+                                return "Your Account is in Pending for Approval";
+                              } else if (L_status == 3) {
+                                return null;
+                              }
+                            } else {
                               return "wrong";
                             }
                           },
                         ),
                       ),
-      //Society names
-                     
-                    //   Padding(
-                    //     padding: EdgeInsets.only(bottom: height(26)),
-                    //     child: Consumer<SocietyNameProvider>(
-                    //       builder: (context, value, child) {
-                    //      return value.SocietyNameVisibilityStatus ?
-                    
-                    // TextField(
-                    //     cursorColor: theme.primaryColor,
-                    //     controller: Society_Name_Controller,
-                    //     readOnly: true,
-                        
-                    //     decoration: InputDecoration(
-                    //       enabledBorder: UnderlineInputBorder(
-                    //           borderSide:
-                    //               BorderSide(color: theme.primaryColor)),
-                    //       focusedBorder: UnderlineInputBorder(
-                    //           borderSide:
-                    //               BorderSide(color: theme.primaryColor)),
-                    //       focusColor: theme.primaryColor,
-                    //       border: UnderlineInputBorder(),
-                    //       labelText: 'Society',
-                    //       labelStyle: TextStyle(color: theme.highlightColor),
-                    //     ),
-                    
-                    // ): 
-                    // TypeAheadFormField<Societies?>(
-                        
-                    //               // autovalidate: true,
-                    //               // enabled: false,
-                    //               hideSuggestionsOnKeyboardHide: false,
-                    //               debounceDuration: Duration(milliseconds: 500),
-                                  
-                    //               textFieldConfiguration: TextFieldConfiguration(
-                    //                   cursorColor: theme.primaryColor,
-                    //                   controller: Society_Name_Controller_Dropdown,
-                    //                   decoration: InputDecoration(
-                                        
-                    //                     enabledBorder: UnderlineInputBorder(
-                    //                         borderSide: BorderSide(
-                    //                             color: theme.primaryColor)),
-                    //                     focusedBorder: UnderlineInputBorder(
-                    //                         borderSide: BorderSide(
-                    //                             color: theme.primaryColor)),
-                    //                     focusColor: theme.primaryColor,
-                    //                     // hintText: "Enter Address",
-                    //                     labelText: "Society",
-                    //                     labelStyle: TextStyle(
-                    //                         color: theme.highlightColor),
-                    //                   )),
-                                      
-                    //               suggestionsCallback:
-                    //                   Societies_Api.Get_Society_Suggestions,
-                    //               itemBuilder:
-                    //                   (context, Societies? suggestion) {
-                    //                 final society_iterations = suggestion!;
-                    //                 return ListTile(
-                    //                   title: Text(society_iterations.societytitle),
-                    //                 );
-                    //               },
+                      //Society names
 
-                    //               // on select
-                    //               onSuggestionSelected:
-                    //                   (Societies? suggestion) {
-                    //                 final society_iterations = suggestion!;
-                    //                 // text field
-                    //                 Society_Name_Controller_Dropdown.text =
-                    //                     society_iterations.societytitle.toString();
+                      //   Padding(
+                      //     padding: EdgeInsets.only(bottom: height(26)),
+                      //     child: Consumer<SocietyNameProvider>(
+                      //       builder: (context, value, child) {
+                      //      return value.SocietyNameVisibilityStatus ?
 
-                    //                 Society_Select_F =
-                    //                     society_iterations.societytitle.toString();
-                    //                 Society_Select_Id_F = society_iterations.id.toString();
-                    //                 Society_Selected_F = true;
-                                    
-                    //                 Society_Name_Controller.text =  society_iterations.societytitle.toString();
-                    //                 Society_Name_Visibility_provider.SocietyNameVisibilityStatus_Func(true);
+                      // TextField(
+                      //     cursorColor: theme.primaryColor,
+                      //     controller: Society_Name_Controller,
+                      //     readOnly: true,
 
-                    //                 print(
-                    //                     "$Society_Select_F address selected");
-                    //                 print(
-                    //                     "$Society_Select_Id_F selected address id");
-                    //                 // print(society_iterations.societytitle);
-                    //                 // print(society_iterations.id);
-                    //                 //remove
-                    //                 // Address_Check_Forget_Func();
-                    //                 // providerrrrrrr
-                    //                 //  Get_Phone_Api_Func(context,Address_Select_Id_F);
-                    //               },
+                      //     decoration: InputDecoration(
+                      //       enabledBorder: UnderlineInputBorder(
+                      //           borderSide:
+                      //               BorderSide(color: theme.primaryColor)),
+                      //       focusedBorder: UnderlineInputBorder(
+                      //           borderSide:
+                      //               BorderSide(color: theme.primaryColor)),
+                      //       focusColor: theme.primaryColor,
+                      //       border: UnderlineInputBorder(),
+                      //       labelText: 'Society',
+                      //       labelStyle: TextStyle(color: theme.highlightColor),
+                      //     ),
 
-                    //               // no item found
-                    //               noItemsFoundBuilder: (context) => Container(
-                    //                 height: _size.height * 0.1,
-                    //                 child: Center(
-                    //                   child: Text("Society Not Found."),
-                    //                 ),
-                    //               ),
+                      // ):
+                      // TypeAheadFormField<Societies?>(
 
-                    //               // on loading
-                    //               loadingBuilder: (context) => Container(
-                    //                 height: _size.height * 0.1,
-                    //                 child: Center(
-                    //                   child: CircularProgressIndicator(
-                    //                     color: Colors.black,
-                    //                   ),
-                    //                 ),
-                    //               ),
+                      //               // autovalidate: true,
+                      //               // enabled: false,
+                      //               hideSuggestionsOnKeyboardHide: false,
+                      //               debounceDuration: Duration(milliseconds: 500),
 
-                    //               //error
+                      //               textFieldConfiguration: TextFieldConfiguration(
+                      //                   cursorColor: theme.primaryColor,
+                      //                   controller: Society_Name_Controller_Dropdown,
+                      //                   decoration: InputDecoration(
 
-                    //               hideOnError: true,
+                      //                     enabledBorder: UnderlineInputBorder(
+                      //                         borderSide: BorderSide(
+                      //                             color: theme.primaryColor)),
+                      //                     focusedBorder: UnderlineInputBorder(
+                      //                         borderSide: BorderSide(
+                      //                             color: theme.primaryColor)),
+                      //                     focusColor: theme.primaryColor,
+                      //                     // hintText: "Enter Address",
+                      //                     labelText: "Society",
+                      //                     labelStyle: TextStyle(
+                      //                         color: theme.highlightColor),
+                      //                   )),
 
-                    //               validator: (value) {
-                    //                 if (value == null || value.isEmpty) {
-                    //                   return "Enter Society";
-                    //                 }
-                    //                 //  else if (Society_Selected_F == true) {
-                    //                 //   print("Select tile true");
-                    //                 //   if (address_Correct_variable_Forget_Password ==
-                    //                 //       true) {
-                    //                 //     print("address Correct");
-                    //                 //     return null;
-                    //                 //   } else if (address_Correct_variable_Forget_Password ==
-                    //                 //       false) {
-                    //                 //     print("address Wrong");
-                    //                 //     return "Enter Address Correctly";
-                    //                 //   }
-                    //                 // }
-                    //                  else if (Society_Selected_F == false) {
-                    //                   return "Select a Society from List";
-                    //                 } else {
-                    //                   return "wrong";
-                    //                 }
-                    //               },
-                    //             ); }),
-                    //   ),
+                      //               suggestionsCallback:
+                      //                   Societies_Api.Get_Society_Suggestions,
+                      //               itemBuilder:
+                      //                   (context, Societies? suggestion) {
+                      //                 final society_iterations = suggestion!;
+                      //                 return ListTile(
+                      //                   title: Text(society_iterations.societytitle),
+                      //                 );
+                      //               },
+
+                      //               // on select
+                      //               onSuggestionSelected:
+                      //                   (Societies? suggestion) {
+                      //                 final society_iterations = suggestion!;
+                      //                 // text field
+                      //                 Society_Name_Controller_Dropdown.text =
+                      //                     society_iterations.societytitle.toString();
+
+                      //                 Society_Select_F =
+                      //                     society_iterations.societytitle.toString();
+                      //                 Society_Select_Id_F = society_iterations.id.toString();
+                      //                 Society_Selected_F = true;
+
+                      //                 Society_Name_Controller.text =  society_iterations.societytitle.toString();
+                      //                 Society_Name_Visibility_provider.SocietyNameVisibilityStatus_Func(true);
+
+                      //                 print(
+                      //                     "$Society_Select_F address selected");
+                      //                 print(
+                      //                     "$Society_Select_Id_F selected address id");
+                      //                 // print(society_iterations.societytitle);
+                      //                 // print(society_iterations.id);
+                      //                 //remove
+                      //                 // Address_Check_Forget_Func();
+                      //                 // providerrrrrrr
+                      //                 //  Get_Phone_Api_Func(context,Address_Select_Id_F);
+                      //               },
+
+                      //               // no item found
+                      //               noItemsFoundBuilder: (context) => Container(
+                      //                 height: _size.height * 0.1,
+                      //                 child: Center(
+                      //                   child: Text("Society Not Found."),
+                      //                 ),
+                      //               ),
+
+                      //               // on loading
+                      //               loadingBuilder: (context) => Container(
+                      //                 height: _size.height * 0.1,
+                      //                 child: Center(
+                      //                   child: CircularProgressIndicator(
+                      //                     color: Colors.black,
+                      //                   ),
+                      //                 ),
+                      //               ),
+
+                      //               //error
+
+                      //               hideOnError: true,
+
+                      //               validator: (value) {
+                      //                 if (value == null || value.isEmpty) {
+                      //                   return "Enter Society";
+                      //                 }
+                      //                 //  else if (Society_Selected_F == true) {
+                      //                 //   print("Select tile true");
+                      //                 //   if (address_Correct_variable_Forget_Password ==
+                      //                 //       true) {
+                      //                 //     print("address Correct");
+                      //                 //     return null;
+                      //                 //   } else if (address_Correct_variable_Forget_Password ==
+                      //                 //       false) {
+                      //                 //     print("address Wrong");
+                      //                 //     return "Enter Address Correctly";
+                      //                 //   }
+                      //                 // }
+                      //                  else if (Society_Selected_F == false) {
+                      //                   return "Select a Society from List";
+                      //                 } else {
+                      //                   return "wrong";
+                      //                 }
+                      //               },
+                      //             ); }),
+                      //   ),
 
                       // Password
                       Padding(
-                        padding: EdgeInsets.only(bottom: height(23),top: height(23)),
+                        padding: EdgeInsets.only(
+                            bottom: height(23), top: height(23)),
                         child: TextFormField(
                           cursorColor: theme.primaryColor,
                           controller: password_cont,
@@ -325,26 +325,28 @@ class _Login_ScreenState extends State<LoginScreen> {
                                           color: theme.highlightColor,
                                         ))),
                           validator: (value) {
-                            if(Login_Password_validation == false){
-                            if (value == null || value.isEmpty
-                                 || value.length < 8
-                                ) {
-                              return "Enter Password";
-                            }}
+                            if (Login_Password_validation == false) {
+                              if (value == null ||
+                                  value.isEmpty ||
+                                  value.length < 8) {
+                                return "Enter Password";
+                              }
+                            }
                             // Second round Validation
-                            else if(Login_Password_validation == true){
+                            else if (Login_Password_validation == true) {
                               // for loop validation
                               Login_Password_validation = false;
                               if (L_status == 0) {
-                              return null;
-                            } else if (L_status == 1) {
-                              return null;
-                              // return "Correct";
-                            } else if (L_status == 2) {
-                              return null;
-                            } else if (L_status == 3) {
-                              return "Wrong Password";
-                            }}
+                                return null;
+                              } else if (L_status == 1) {
+                                return null;
+                                // return "Correct";
+                              } else if (L_status == 2) {
+                                return null;
+                              } else if (L_status == 3) {
+                                return "Wrong Password";
+                              }
+                            }
                             //  else if(L_status == 99){
                             //   return ""
                             // }
@@ -409,18 +411,18 @@ class _Login_ScreenState extends State<LoginScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),
                         onPressed: () async {
-                       
-                          if (!_Login_formKey.currentState!.validate()) {return;}
+                          if (!_Login_formKey.currentState!.validate()) {
+                            return;
+                          }
                           //   remove
                           await connectivityStatusFunc(context);
 
-                           
-
                           await Login_Post_Api(
-                              context,
-                              _Login_formKey,
-                              "${cnic_cont.text}",
-                              "${password_cont.text}",);
+                            context,
+                            _Login_formKey,
+                            "${cnic_cont.text}",
+                            "${password_cont.text}",
+                          );
 
                           // Navigator.push(
                           //   context,

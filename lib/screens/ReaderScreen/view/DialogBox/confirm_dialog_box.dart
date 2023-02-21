@@ -6,7 +6,8 @@ import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/responsive.dart';
 import 'dart:io';
 
-void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
+void confirmDialogBox(
+    context, theme, address, addressId, previousReader, reading) {
   final _size = MediaQuery.of(context).size;
   showGeneralDialog(
     context: context,
@@ -29,7 +30,7 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
           // _size.width * 0.9,
           height: height(250),
           //  _size.height * 0.4,
-          margin:const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(_size.width * 0.1)),
@@ -100,10 +101,16 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
                             style: ElevatedButton.styleFrom(
                                 primary: theme.primaryColor,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(_size.width * 0.1))),
+                                    borderRadius: BorderRadius.circular(
+                                        _size.width * 0.1))),
                             onPressed: () {
-                              addGasReadingFunc(context,theme,File(meterImageFilePath), addressId, previousReader, reading);
+                              addGasReadingFunc(
+                                  context,
+                                  theme,
+                                  File(meterImageFilePath),
+                                  addressId,
+                                  previousReader,
+                                  reading);
                               // readerApi(context, theme, readerLoginIdS, addressId, previousReader, reading);
                             },
                             child: Padding(
@@ -159,7 +166,6 @@ void confirmDialogBox(context,theme,address,addressId,previousReader,reading) {
             ],
           ),
           //  SizedBox.expand(child: FlutterLogo()),
-          
         ),
       );
     },

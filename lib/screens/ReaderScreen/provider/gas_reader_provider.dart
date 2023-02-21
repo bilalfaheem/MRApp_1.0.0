@@ -1,10 +1,7 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:mrapp/screens/ReaderScreen/view/reader_screen.dart';
 
 class GasReaderProvider with ChangeNotifier {
-
   bool _addressSearching = true;
   bool get addressSearching => _addressSearching;
 
@@ -14,15 +11,16 @@ class GasReaderProvider with ChangeNotifier {
   void addressSearchingFunc(bool status) {
     _addressSearching = status;
 
-    if(status == true){
+    if (status == true) {
       addressIdd = "null";
       addressAddress = "null";
       addressPreviousReading = "null";
       _meterImage = false;
     }
-      notifyListeners();
+    notifyListeners();
   }
-  void meterImageFunc(bool status){
+
+  void meterImageFunc(bool status) {
     _meterImage = status;
     notifyListeners();
   }

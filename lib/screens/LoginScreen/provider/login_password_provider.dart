@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class LoginPasswordProvider with ChangeNotifier {
-
   bool _loginpasswordvisibilityprovider = false;
   bool get Loginpasswordvisibilityprovider => _loginpasswordvisibilityprovider;
 

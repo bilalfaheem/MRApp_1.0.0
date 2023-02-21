@@ -41,9 +41,8 @@ class ProfileScreen extends StatelessWidget {
                 Center(
                     child: CircleAvatar(
                   backgroundColor: theme.primaryColorDark,
-                   radius: _size.height * 0.08  ,
-                  
-                  
+                  radius: _size.height * 0.08,
+
                   // backgroundImage: AssetImage("assets/Bottom_Bar/Profile.png"),
                   child: Container(
                     // margin: EdgeInsets.symmetric(vertical: 100),
@@ -56,13 +55,13 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 )),
-                 profileTile(
-                            _size,
-                            theme,
-                            readerLoginNameS.toString().toUpperCase(),
-                            readerLoginCnicS,
-                            readerLoginPhoneS,
-                            readerLoginSocietyS),
+                profileTile(
+                    _size,
+                    theme,
+                    readerLoginNameS.toString().toUpperCase(),
+                    readerLoginCnicS,
+                    readerLoginPhoneS,
+                    readerLoginSocietyS),
                 // StreamBuilder(
                 //     stream:
                 //         Active_User_Func(User_Login_id_S.toString(), context)
@@ -136,8 +135,8 @@ class ProfileScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30))),
                         onPressed: () {
-                        loadingIndicator(context);
-                         logOut(context, true);
+                          loadingIndicator(context);
+                          logOut(context, true);
                           // logoutCheck(readerLoginIdS, context);
                         },
                         child: LayoutBuilder(builder:
