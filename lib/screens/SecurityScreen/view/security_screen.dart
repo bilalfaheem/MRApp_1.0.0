@@ -27,7 +27,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff2c6e49', 'Cancel', true, ScanMode.QR);
       if (barcodeScanRes != "-1") {
-        print("qr scanned");
+        print("qr scannedddddddddd");
         scanApiFunc(context, barcodeScanRes.toString());
         // ScanApiFunc(context, barcodeScanRes.toString(),
         //     Credential_List.first.response!.walletId.toString());
@@ -46,11 +46,11 @@ class _SecurityScreenState extends State<SecurityScreen> {
     // setState to update our non-existent appearance.
     if (!mounted) return;
 
-    setState(() {
-      print(
-          "qr scannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn Qr Scan $_scanBarcode");
-      _scanBarcode = barcodeScanRes;
-    });
+    // setState(() {
+    //   print(
+    //       "qr scannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn Qr Scan $_scanBarcode");
+    //   _scanBarcode = barcodeScanRes;
+    // });
   }
 
   late StreamController _visitorStreamController;
