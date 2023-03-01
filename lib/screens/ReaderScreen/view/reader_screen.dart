@@ -66,7 +66,7 @@ class ReaderScreen extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final _size = MediaQuery.of(context).size;
     SizeConfig().init(context);
-    logoutCheck(readerLoginIdS, context);
+    // logoutCheck(readerLoginIdS, context);
 
     return Scaffold(
         body: SingleChildScrollView(

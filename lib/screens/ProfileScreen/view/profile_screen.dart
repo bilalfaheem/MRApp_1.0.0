@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final _size = MediaQuery.of(context).size;
     SizeConfig().init(context);
-    logoutCheck(readerLoginIdS, context);
+     logoutCheck(context, readerLoginIdS, readerLoginUpdateS);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(

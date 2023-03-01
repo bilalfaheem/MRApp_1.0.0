@@ -9,6 +9,7 @@ import 'package:mrapp/screens/SecurityScreen/function/visitor_history_func.dart'
 import 'package:mrapp/screens/SecurityScreen/widget/visitor_history_tile.dart';
 import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/headingbar.dart';
+import 'package:mrapp/utils/logoutcheck.dart';
 
 String _scanBarcode = 'Unknown';
 
@@ -73,6 +74,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
   @override
   void initState() {
     super.initState();
+    logoutCheck(context, readerLoginIdS, readerLoginUpdateS);
     _visitorStreamController = StreamController();
     loadVisitorHistory();
   }
