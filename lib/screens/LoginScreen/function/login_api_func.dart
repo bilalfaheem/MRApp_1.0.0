@@ -60,7 +60,8 @@ Future<void> Login_Post_Api(
       pref.setString("readerPassword", userLoginDataResponse[0]["password"]);
       pref.setString("readerUpdate", userLoginDataResponse[0]["is_updated"]);
       pref.setString("readerSociety", userLoginDataResponse[0]["project_name"]);
-      pref.setString("readerSociety_Id", userLoginDataResponse[0]["project_id"]);
+      pref.setString(
+          "readerSociety_Id", userLoginDataResponse[0]["project_id"]);
 
       //1.0.3
       sharedPrefLoginFunc();
@@ -98,14 +99,14 @@ void Login_validation_status(bool status) {
   Login_Password_validation = status;
 }
 
-    // {
-    //         "id": "4",
-    //         "project_id": "1",
-    //         "created_by": "1",
-    //         "name": "hamza",
-    //         "phone": "03172746242",
-    //         "password": "pakistan",
-    //         "is_active": "1",
-    //         "is_block": "0",
-    //         "created_at": "2023-02-28 15:20:55"
-    //     }
+// {
+//         "id": "4",
+//         "project_id": "1",
+//         "created_by": "1",
+//         "name": "hamza",
+//         "phone": "03172746242",
+//         "password": "pakistan",
+//         "is_active": "1",
+//         "is_block": "0",
+//         "created_at": "2023-02-28 15:20:55"
+//     }

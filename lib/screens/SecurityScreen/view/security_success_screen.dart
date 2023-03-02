@@ -7,9 +7,11 @@ import 'package:mrapp/utils/constant.dart';
 import 'package:mrapp/utils/headingbar.dart';
 
 class SecuritySuccessScreen extends StatelessWidget {
+  bool resident;
   String name, unitNo, eventType, passType, validTill;
   SecuritySuccessScreen(
-      {required this.name,
+      {required this.resident,
+      required this.name,
       required this.unitNo,
       required this.eventType,
       required this.passType,
@@ -172,56 +174,67 @@ class SecuritySuccessScreen extends StatelessWidget {
                               ),
                             ),
                             // Container(
-
-                            Divider(
-                                thickness: 1,
-                                color: Color.fromARGB(75, 0, 0, 0)),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: size.height * 0.01),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: constraints.maxWidth * paddingsize,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Event",
-                                          textAlign: TextAlign.end,
-                                          style: GoogleFonts.ubuntu(
-                                              fontSize: constraints.maxWidth *
-                                                  textsize,
-                                              color: text_color),
+                            resident
+                                ? Container()
+                                : Column(
+                                    children: [
+                                      Divider(
+                                          thickness: 1,
+                                          color: Color.fromARGB(75, 0, 0, 0)),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(
+                                            vertical: size.height * 0.01),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              width: constraints.maxWidth *
+                                                  paddingsize,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    "Event",
+                                                    textAlign: TextAlign.end,
+                                                    style: GoogleFonts.ubuntu(
+                                                        fontSize: constraints
+                                                                .maxWidth *
+                                                            textsize,
+                                                        color: text_color),
+                                                  ),
+                                                  Text(
+                                                    ":",
+                                                    textAlign: TextAlign.end,
+                                                    style: GoogleFonts.ubuntu(
+                                                        fontSize: constraints
+                                                                .maxWidth *
+                                                            textsize,
+                                                        color: text_color),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: constraints.maxWidth *
+                                                  paddingsize,
+                                              child: Text(
+                                                eventType.toString(),
+                                                textAlign: TextAlign.left,
+                                                style: GoogleFonts.ubuntu(
+                                                    fontSize:
+                                                        constraints.maxWidth *
+                                                            textsize,
+                                                    color: theme.focusColor),
+                                              ),
+                                            )
+                                          ],
                                         ),
-                                        Text(
-                                          ":",
-                                          textAlign: TextAlign.end,
-                                          style: GoogleFonts.ubuntu(
-                                              fontSize: constraints.maxWidth *
-                                                  textsize,
-                                              color: text_color),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                  Container(
-                                    width: constraints.maxWidth * paddingsize,
-                                    child: Text(
-                                      eventType.toString(),
-                                      textAlign: TextAlign.left,
-                                      style: GoogleFonts.ubuntu(
-                                          fontSize:
-                                              constraints.maxWidth * textsize,
-                                          color: theme.focusColor),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
                             Divider(
                               thickness: 1,
                               color: Color.fromARGB(75, 0, 0, 0),

@@ -22,6 +22,7 @@ class SecurityScreen extends StatefulWidget {
 
 class _SecurityScreenState extends State<SecurityScreen> {
   Future<void> ssscanQR() async {
+    logoutCheck(context, readerLoginIdS, readerLoginUpdateS);
     String barcodeScanRes;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
@@ -57,7 +58,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
   late StreamController _visitorStreamController;
 
   loadVisitorHistory() async {
-    visitorHistoryFunc().then((res) async {
+    visitorHistoryFuncc().then((res) async {
       _visitorStreamController.add(res);
       return res;
     });
@@ -65,7 +66,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
 
   Future<Null> refreshVisitorHistory() async {
     print("<<<<<<<<<<<<<<<<<<<<handle Refresh>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    visitorHistoryFunc().then((res) async {
+    visitorHistoryFuncc().then((res) async {
       _visitorStreamController.add(res);
       return null;
     });
@@ -186,19 +187,22 @@ class _SecurityScreenState extends State<SecurityScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                 ListView.builder(
-                                  reverse: true,
+                                    reverse: true,
                                     physics: NeverScrollableScrollPhysics(),
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
-                                    itemCount: visitorHistoryList.length,
+                                    itemCount: visitorHistoryListt.length,
                                     itemBuilder: (context, index) {
                                       final iteration =
-                                          visitorHistoryList[index];
+                                          visitorHistoryListt[index];
                                       return visitorHistoryTile(
                                           context,
-                                          iteration,
-                                          iteration.guest!.contactName.toString(),
-                                          iteration.isScan);
+                                          iteration
+                                          // ,
+                                          // iteration.guest!.contactName
+                                          //     .toString(),
+                                          // iteration.isScan
+                                          );
                                     }),
                                 SizedBox(height: 110)
                               ]));

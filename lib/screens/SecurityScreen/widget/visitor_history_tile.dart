@@ -6,21 +6,30 @@ import 'package:mrapp/screens/ReaderScreen/view/DialogBox/msg_dialog_box.dart';
 import 'package:mrapp/screens/SecurityScreen/view/security_success_screen.dart';
 import 'package:mrapp/utils/constant.dart';
 
-Widget visitorHistoryTile(context, iteration, complainType, date) {
+Widget visitorHistoryTile(context, iteration) {
   final size = MediaQuery.of(context).size;
   final theme = Theme.of(context);
   return GestureDetector(
     // onHorizontalDragEnd: (details) => print(details),
     onTap: () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => SecuritySuccessScreen(
-                  name: iteration.guest!.contactName.toString(),
-                  unitNo: iteration.passess!.address.toString(),
-                  eventType: iteration.passess!.passEvent.toString(),
-                  passType: iteration.passess!.passType.toString(),
-                  validTill: iteration.passess!.endDate.toString())));
+      if(iteration["user_type"].toString() == "resident"){
+        print(iteration["user_type"].toString());
+        print("true");
+
+      }else if(iteration["user_type"].toString() == "guest"){
+        print(iteration["user_type"].toString());
+        print("false");
+      }
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //         builder: (context) => SecuritySuccessScreen(
+      //             resident: iteration["user_type"].toString() == "resident",
+      //             name: iteration.guest!.contactName.toString(),
+      //             unitNo: iteration.passess!.address.toString(),
+      //             eventType: iteration.passess!.passEvent.toString(),
+      //             passType: iteration.passess!.passType.toString(),
+      //             validTill: iteration.passess!.endDate.toString())));
       // // print(threadId);
     },
     child: Container(
@@ -38,15 +47,7 @@ Widget visitorHistoryTile(context, iteration, complainType, date) {
             //     size.width * 0.027, size.width * 0.1, size.width * 0.027),
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: complainType == "tanker"
-                    ? theme.primaryColor
-                    :
-                    //  Color.fromARGB(190, 20, 72, 111):
-                    complainType == "maintenance"
-                        ? Color.fromARGB(191, 238, 62, 49)
-                        : complainType == "regular" || complainType == "general"
-                            ? Colors.white
-                            :
+                color: 
                             // Color.fromARGB(198, 87, 24, 98):
                             theme.primaryColor,
 
@@ -67,11 +68,7 @@ Widget visitorHistoryTile(context, iteration, complainType, date) {
               //             : complainType == "general"
               //                 ? "assets/Logo_app.png"
               //                 : "assets/Icons/Warning.png",
-              color: complainType == "regular"
-                  ? theme.primaryColor
-                  : complainType == "general"
-                      ? Colors.red
-                      : Colors.white,
+              color:  Colors.white,
               height: 20,
               fit: BoxFit.fill,
             ),
