@@ -55,19 +55,20 @@ Future<void> scanApiFunc(context, String qrCode) async {
     } else if (dataStatus == "201") {
       var dataResponse = data["response"];
       print("<<<<<<<<<<<<<<<<<<<<<<$dataResponse>>>>>>>>>>>>>>>>>>>>>>");
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //         builder: (context){
-      //           return
-      //         SecuritySuccessScreen(
-      //             name:dataResponse.first["guest"]["contact_name"].toString(),
-      //             unitNo: dataResponse.first["passess"]["address"].toString(),
-      //             eventType: dataResponse.first["passess"]["pass_event"].toString(),
-      //             passType: dataResponse.first["passess"]["pass_type"].toString(),
-      //             validTill: dataResponse.first["passess"]["end_date"].toString());
-      //             })
-      //             );
+      print(dataResponse["full_name"]);
+      print(dataResponse["address"].toString());
+      // print(dataResponse.first["passess"]["pass_event"].toString());
+      // print(dataResponse.first["passess"]["pass_type"].toString());
+      // print(dataResponse.first["passess"]["end_date"].toString());
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return SecuritySuccessScreen(
+            resident: true,
+            name: dataResponse["full_name"].toString(),
+            unitNo: dataResponse["user_address"].toString(),
+            eventType: "eventType",
+            passType: "resident",
+            validTill: "validTill");
+      }));
       print("Scan succesful resident");
     } else if (dataStatus == "400") {
       msgDialogBox(context, theme, "Failed", false);

@@ -285,9 +285,12 @@ class SecuritySuccessScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            resident?Container():
                             Divider(
                                 thickness: 1,
                                 color: Color.fromARGB(75, 0, 0, 0)),
+                                resident?
+                                Container():
                             Container(
                               margin: EdgeInsets.symmetric(
                                   vertical: size.height * 0.01),

@@ -9,27 +9,42 @@ import 'package:mrapp/utils/constant.dart';
 Widget visitorHistoryTile(context, iteration) {
   final size = MediaQuery.of(context).size;
   final theme = Theme.of(context);
+  bool resident = false;
+  if (iteration["user_type"].toString() == "resident") {
+    print(iteration["user_type"].toString());
+    print("true");
+    resident = true;
+  } else if (iteration["user_type"].toString() == "guest") {
+    print(iteration["user_type"].toString());
+    print("false");
+    resident = false;
+  }
+
   return GestureDetector(
     // onHorizontalDragEnd: (details) => print(details),
     onTap: () {
-      if(iteration["user_type"].toString() == "resident"){
-        print(iteration["user_type"].toString());
-        print("true");
+      resident?
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SecuritySuccessScreen(
+                  resident: resident,
+                  name: iteration["full_name"].toString(),
+                  unitNo: iteration["address"].toString(),
+                  eventType: "event",
+                  passType: iteration["user_type"].toString(),
+                  validTill: "validTill"))):
 
-      }else if(iteration["user_type"].toString() == "guest"){
-        print(iteration["user_type"].toString());
-        print("false");
-      }
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //         builder: (context) => SecuritySuccessScreen(
-      //             resident: iteration["user_type"].toString() == "resident",
-      //             name: iteration.guest!.contactName.toString(),
-      //             unitNo: iteration.passess!.address.toString(),
-      //             eventType: iteration.passess!.passEvent.toString(),
-      //             passType: iteration.passess!.passType.toString(),
-      //             validTill: iteration.passess!.endDate.toString())));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SecuritySuccessScreen(
+                  resident: resident,
+                  name: iteration["guest"]["contact_name"].toString(),
+                  unitNo: iteration["passess"]["address"].toString(),
+                  eventType: iteration["passess"]["pass_event"].toString(),
+                  passType: iteration["passess"]["pass_type"].toString(),
+                  validTill: iteration["passess"]["end_date"].toString())));
       // // print(threadId);
     },
     child: Container(
@@ -47,9 +62,9 @@ Widget visitorHistoryTile(context, iteration) {
             //     size.width * 0.027, size.width * 0.1, size.width * 0.027),
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: 
-                            // Color.fromARGB(198, 87, 24, 98):
-                            theme.primaryColor,
+                color:
+                    // Color.fromARGB(198, 87, 24, 98):
+                    theme.primaryColor,
 
                 // Paid
                 //     ? Color.fromARGB(203, 210, 4, 45)
@@ -68,14 +83,17 @@ Widget visitorHistoryTile(context, iteration) {
               //             : complainType == "general"
               //                 ? "assets/Logo_app.png"
               //                 : "assets/Icons/Warning.png",
-              color:  Colors.white,
+              color: Colors.white,
               height: 20,
               fit: BoxFit.fill,
             ),
           ),
           title: Text(
-              complainType[0].toUpperCase() +
-                  complainType.substring(1).toLowerCase(),
+              resident
+                  ? iteration["full_name"].toString()
+                  : iteration["guest"]["contact_name"].toString(),
+              // complainType[0].toUpperCase() +
+              //     complainType.substring(1).toLowerCase(),
               style: GoogleFonts.ubuntu(fontSize: 15.5, color: Colors.black)),
           subtitle: Container(
             margin: EdgeInsets.only(top: 4),
@@ -98,7 +116,8 @@ Widget visitorHistoryTile(context, iteration) {
                           // color: Colors.purple,
                           borderRadius: BorderRadius.circular(30)),
                       child: Text(
-                          DateFormat.MMMEd().format(DateTime.parse(date)),
+                          DateFormat.MMMEd().format(
+                              DateTime.parse(iteration["is_scan"].toString())),
                           style: GoogleFonts.ubuntu(
                               fontSize: 14, color: theme.highlightColor)),
                     ),
@@ -113,7 +132,9 @@ Widget visitorHistoryTile(context, iteration) {
                       decoration: BoxDecoration(
                           // color: Colors.purple,
                           borderRadius: BorderRadius.circular(30)),
-                      child: Text(DateFormat.jm().format(DateTime.parse(date)),
+                      child: Text(
+                          DateFormat.jm().format(
+                              DateTime.parse(iteration["is_scan"].toString())),
                           style: GoogleFonts.ubuntu(
                               fontSize: 14, color: theme.highlightColor)),
                     )
