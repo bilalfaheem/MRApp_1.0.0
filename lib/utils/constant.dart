@@ -17,7 +17,7 @@ String readerLoginSocietyS = "null";
 String readerLoginSocietyidS = "null";
 
 // Logo
-const zSZSaimaLogo = "assets/logo/ZSZSaima.png";
+const zSZSaimaLogo = "assets/logo/WMSLOGO.png";
 // Images
 const profile = "assets/Icon/profile.png";
 const cnic = "assets/Icon/cnic.png";

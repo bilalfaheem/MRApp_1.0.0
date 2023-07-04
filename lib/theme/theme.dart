@@ -24,16 +24,20 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get lightTheme {
     return ThemeData(
-        primaryColor: const Color(0xff2c6e49),
-        //  const Color(0xff04543c),
+        primaryColor: 
+        // const Color(0xff2c6e49),
+          // const Color(0xff04543c),
         // Color(0xff045337),
-        //  Color(0xff015e8b),
+         Color(0xff015e8b),
         //  Color.fromARGB(208, 23, 113, 109),
         // Colors.green,
-        primaryColorDark: const Color(0xff2c6e49),
-        //  Color.fromARGB(255, 4, 68, 100),
-        primaryColorLight: const Color(0xff2c6e49),
-        shadowColor: Color(0xffe9ecef),
+        primaryColorDark: 
+        //  Color(0xff2c6e49),
+         Color.fromARGB(255, 4, 68, 100),
+        // primaryColorLight: 
+        //  Color(0xff2c6e49),
+        shadowColor:
+         Color(0xffe9ecef),
         //  Color.fromARGB(193, 48, 129, 169),
         scrollbarTheme: ScrollbarThemeData(
           thickness: MaterialStateProperty.all(2),
