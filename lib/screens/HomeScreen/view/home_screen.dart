@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   final screens = [
     ReaderScreen(),
-    SecurityScreen(),
+    // SecurityScreen(),
     ProfileScreen(),
   ];
 
@@ -74,15 +74,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     label: '',
                   ),
-                  BottomNavigationBarItem(
-                    // backgroundColor: Colors.blueGrey,
-                    icon: ImageIcon(const AssetImage(security),
-                        // "assets/Bottom_Bar/Wallet.png"),
-                        //color: Colors.black,
-                        size: 22),
+                  // BottomNavigationBarItem(
+                  //   // backgroundColor: Colors.blueGrey,
+                  //   icon: ImageIcon(const AssetImage(security),
+                  //       // "assets/Bottom_Bar/Wallet.png"),
+                  //       //color: Colors.black,
+                  //       size: 22),
 
-                    label: '',
-                  ),
+                  //   label: '',
+                  // ),
                   BottomNavigationBarItem(
                     icon: ImageIcon(const AssetImage(profile), size: 22),
                     label: '',

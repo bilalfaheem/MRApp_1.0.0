@@ -16,7 +16,7 @@ void logoutCheck(context, String guardId, String isUpdated) async {
         "<<<<<<<<<<<<<<<<<<<<<${updateData["status"].toString()}>>>>>>>>>>>>>>>>>>>>>");
     if (updateData["status"].toString() == "0") {
       print("<<<<<<<<<<<<<<<<,logout>>>>>>>>>>>>>>>>");
-      logOut(context, false);
+      // logOut(context, false);//remove
     }
 
     // if (readerLoginUpdateS != updateData[0]["is_updated"].toString() ||

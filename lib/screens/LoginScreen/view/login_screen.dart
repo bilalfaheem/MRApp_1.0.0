@@ -417,7 +417,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                           //   remove
                           await connectivityStatusFunc(context);
 
-                          await Login_Post_Api(
+                          await loginPostApi(
                             context,
                             _Login_formKey,
                             "${cnic_cont.text}",
