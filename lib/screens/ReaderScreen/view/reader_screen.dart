@@ -83,7 +83,7 @@ class ReaderScreen extends StatelessWidget {
             //heading
             Container(
                 margin: EdgeInsets.fromLTRB(0, 0, 0, _size.height * 0.038),
-                child: headingBar(context, "Gas Reading", 20, "null")),
+                child: headingBar(context, "R E A D I N G", 20, "null")),
 
             Consumer<GasReaderProvider>(builder: (context, value, child) {
               return value.addressSearching
@@ -92,9 +92,10 @@ class ReaderScreen extends StatelessWidget {
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(" Enter Address",
+                        Text(" ENTER ADDRESS",
                             textAlign: TextAlign.start,
                             style: GoogleFonts.ubuntu(
+                              fontWeight: FontWeight.bold,
                               fontSize: _size.height * 0.02,
                               color: theme.primaryColor,
                             )),

@@ -27,7 +27,7 @@ void Order_dialog_loading(context, theme) {
             children: [
               Center(
                 child: Image.asset(
-                  zSZSaimaLogo,
+                  system,
                   width: MediaQuery.of(context).size.width * 0.4,
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),

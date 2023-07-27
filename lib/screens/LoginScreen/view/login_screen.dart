@@ -61,7 +61,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                 Container(
                   margin: EdgeInsets.only(top: height(50), bottom: height(15)),
                   child: Center(
-                    child: Image.asset(zSZSaimaLogo,
+                    child: Image.asset(system,
                         // color: theme.primaryColor,
                         width: width(220),
                         //  MediaQuery.of(context).size.width * 0.7,
@@ -76,17 +76,18 @@ class _Login_ScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      // Text(
+                      //   "Welcome Back to ",
+                      //   style: GoogleFonts.ubuntu(
+                      //       fontSize: height(20),
+                      //       // MediaQuery.of(context).size.height * 0.04,
+                      //       color: theme.focusColor),
+                      // ),
                       Text(
-                        "Welcome Back to ",
+                        "BEAMS UTILITY",
                         style: GoogleFonts.ubuntu(
-                            fontSize: height(20),
-                            // MediaQuery.of(context).size.height * 0.04,
-                            color: theme.focusColor),
-                      ),
-                      Text(
-                        "MRApp",
-                        style: GoogleFonts.ubuntu(
-                            fontSize: height(20),
+                          fontWeight: FontWeight.bold,
+                            fontSize: height(25),
                             // MediaQuery.of(context).size.height * 0.04,
                             color: theme.primaryColor),
                       )
@@ -119,7 +120,7 @@ class _Login_ScreenState extends State<LoginScreen> {
                                     BorderSide(color: theme.primaryColor)),
                             focusColor: theme.primaryColor,
                             border: UnderlineInputBorder(),
-                            labelText: 'CNIC/ Phone Number ',
+                            labelText: 'Phone Number ',
                             labelStyle: TextStyle(color: theme.highlightColor),
                           ),
                           validator: (a) {
@@ -434,8 +435,9 @@ class _Login_ScreenState extends State<LoginScreen> {
                             (BuildContext context, BoxConstraints constraints) {
                           return Text(
                               // constraints.maxWidth.toStringAsFixed(2),
-                              'Login',
+                              'LOGIN',
                               style: GoogleFonts.ubuntu(
+                                fontWeight: FontWeight.bold,
                                   fontSize: constraints.maxHeight * 0.4,
                                   // width(30),
                                   // MediaQuery.of(context).size.height * 0.04,

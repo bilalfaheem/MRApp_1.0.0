@@ -36,6 +36,7 @@ Widget headingBar(context, heading, double headingSize, iconName) {
         child: Text(
           heading,
           style: GoogleFonts.ubuntu(
+            fontWeight: FontWeight.bold,
               fontSize: height(headingSize), color: theme.focusColor),
         ),
       ),

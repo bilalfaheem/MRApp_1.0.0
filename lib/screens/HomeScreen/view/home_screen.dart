@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mrapp/screens/HistoryScreen/View/history_screen.dart';
 import 'package:mrapp/screens/ProfileScreen/view/profile_screen.dart';
 import 'package:mrapp/screens/ReaderScreen/view/reader_screen.dart';
-import 'package:mrapp/screens/SecurityScreen/view/security_screen.dart';
 import 'package:mrapp/utils/constant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,10 +12,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
+  int currentIndex = 1;
   final screens = [
     ReaderScreen(),
-    // SecurityScreen(),
+    HistoryScreen(),
     ProfileScreen(),
   ];
 
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     // backgroundColor: Colors.blueGrey,
-                    icon: ImageIcon(const AssetImage(gas),
+                    icon: ImageIcon( AssetImage(scan),
                         // "assets/Bottom_Bar/Wallet.png"),
                         //color: Colors.black,
                         size: 22),
@@ -83,6 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   //   label: '',
                   // ),
+                  BottomNavigationBarItem(
+                    icon: ImageIcon(AssetImage(history), size: 22),
+                    label: '',
+                  ),
                   BottomNavigationBarItem(
                     icon: ImageIcon(const AssetImage(profile), size: 22),
                     label: '',

@@ -28,7 +28,7 @@ class CustomTheme with ChangeNotifier {
         // const Color(0xff2c6e49),
           // const Color(0xff04543c),
         // Color(0xff045337),
-         Color(0xff015e8b),
+         Color(0xff043658),
         //  Color.fromARGB(208, 23, 113, 109),
         // Colors.green,
         primaryColorDark: 

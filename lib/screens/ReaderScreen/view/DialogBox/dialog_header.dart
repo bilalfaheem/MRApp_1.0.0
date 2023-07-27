@@ -25,7 +25,7 @@ Widget Order_Dialog_Header(context) {
 
       //  SizedBox(height: 1,),
 
-      Image.asset(zSZSaimaLogo,
+      Image.asset(system,
           // color: Colors.blue,
 
           width: width(180),

@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                 //heading
                 Container(
                     margin: EdgeInsets.fromLTRB(0, 0, 0, _size.height * 0.038),
-                    child: headingBar(context, "Profile", 22, "null")),
+                    child: headingBar(context, "P R O F I L E", 22, "null")),
                 // IconButton(onPressed: (){
 
                 // }, icon: Icon(Icons.menu)),
@@ -40,8 +40,9 @@ class ProfileScreen extends StatelessWidget {
 
                 Center(
                     child: CircleAvatar(
-                  backgroundColor: theme.primaryColorDark,
-                  radius: _size.height * 0.08,
+                      backgroundColor: Colors.transparent,
+                  // backgroundColor: theme.primaryColorDark,
+                  radius: _size.height * 0.07,
 
                   // backgroundImage: AssetImage("assets/Bottom_Bar/Profile.png"),
                   child: Container(
@@ -49,12 +50,14 @@ class ProfileScreen extends StatelessWidget {
                     // color: Colors.amber,
                     // height: _size.height*1,
                     child: Image.asset(
-                      zSZSaimaLogo, width: _size.height * 0.134,
-                      color: Colors.white,
+                      system, 
+                      width: _size.height * 0.134,
+                      // color: Colors.white,
                       // width: _size.width * 0.5,
                     ),
                   ),
-                )),
+                )
+                ),
                 profileTile(
                     _size,
                     theme,
@@ -143,8 +146,9 @@ class ProfileScreen extends StatelessWidget {
                             (BuildContext context, BoxConstraints constraints) {
                           return Text(
                               // constraints.maxWidth.toStringAsFixed(2),
-                              "Logout",
+                              "LOGOUT",
                               style: GoogleFonts.ubuntu(
+                                fontWeight: FontWeight.bold,
                                   fontSize: constraints.maxHeight * 0.44,
                                   // width(30),
                                   // MediaQuery.of(context).size.height * 0.04,

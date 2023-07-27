@@ -1,5 +1,7 @@
 const apiAddress = "https://cybernsoft.com/api/";
 
+//cybernsoft.com/api/gas_meter_history.php
+
 String meterImageFilePath = "";
 
 const double paddingTop = 0.01;
@@ -18,6 +20,11 @@ String readerLoginSocietyidS = "null";
 
 // Logo
 const zSZSaimaLogo = "assets/logo/WMSLOGO.png";
+// const beams = "assets/logo/logo.png";
+const beams = "assets/logo/logo2.png";
+const system = "assets/logo/system.png";
+const crime = "assets/logo/crime.png";
+
 // Images
 const profile = "assets/Icon/profile.png";
 const cnic = "assets/Icon/cnic.png";
@@ -29,6 +36,9 @@ const failed = "assets/Icon/failed.png";
 const security = "assets/Icon/security.png";
 const scanner = "assets/Icon/scanner.png";
 const ticket = "assets/Icon/ticket.png";
+const history = "assets/Icon/history.png";
+const scan = "assets/Icon/scan.png";
+
 
 //Gif
 const success = "assets/Gif/success.gif";

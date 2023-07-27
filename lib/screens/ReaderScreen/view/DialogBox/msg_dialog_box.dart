@@ -45,7 +45,7 @@ void msgDialogBox(context, theme, textt, bool done) {
 
                   //  SizedBox(height: 1,),
 
-                  Image.asset(zSZSaimaLogo,
+                  Image.asset(system,
                       // color: Colors.blue,
 
                       width: width(180),
